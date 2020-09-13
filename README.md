@@ -1,5 +1,5 @@
 <h1 align="center">
-AnalyzeNetworksandPathways</h1>
+Analyze Networks and Pathways</h1>
 
 
 Ms. Kathryn Hogan, BTEC 495 intern<br>
