@@ -1,6 +1,15 @@
-# AnalyzeNetworksAndPathways
+<h1 align="center">
+AnalyzeNetworksandPathways</h1>
 
 
+Ms. Kathryn Hogan, BTEC 495 intern<br>
+Dr. Jeffrey Robinson, BTEC 495 project adviser
+
+The project is part of UMBC's BTEC495 Professional Internship and Project-based Research Experience, Ms. Ovejero is a student in the [Translational Life Science Technology (TLST) program](http://shadygrove.umbc.edu/tlst.php) at Universities at Shady Grove Campus.
+
+<h2 align="left">
+Description of the project
+</h2>
 
 Chartrand G, Zhang P. 2012. A First Course in Graph Theory. Dover Publications, Inc. Mineola NY.
 
