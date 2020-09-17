@@ -16,6 +16,15 @@ Description of the project
 Results
 </h2>
 
+### Histograms: 
+
+### miRNA Targets per mRNA: Density Plot
+![](Fig_Output/Rplot.png)
+
+### mRNA Targets per mRNA: Density Plot
+![](Fig_Output/Rplot01.png)
+
+
 <h2 align="left">
 Citations:
 </h2>
