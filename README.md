@@ -11,6 +11,22 @@ The project is part of UMBC's BTEC495 Professional Internship and Project-based 
 Description of the project
 </h2>
 
+100 Word Summary Robinson 2020
+
+Data from the NCBI GEO database series GS132501 was utilized in this report to create analyses and visualizations of mRNA expression data from four miR-mimic treatments. The bioinformatic methods utilized include pathway scoring, differential expression (DE), and gene-set enrichment (GSE) analyses. The visualizations produced include clustering and principal components analysis (PCA), differential expression volcano plots, heatmaps of pathway scores, and miRNA biogenesis pathway results. The data analysis illustrated in this report represents results from the Advanced Analysis Module 2.0 plugin and Nanostring nSolver 4.0 software. Additionally, this report describes the various miRNA mimics utilized in this bioinformatic analysis as well as the scientific evidence supporting the appropriateness of their use.
+
+
+
+100 Word Summary Robinson 2018
+
+In this study, a network model was developed to recognize hypothetical co-regulatory motifs in a miRNA–mRNA interaction network. KEGG and miRWalk2.0 databases were utilized in this study to create a list of mRNA-miRNA interactions that may play a role in the regulation of intestinal epithelial barrier function. In addition, an R-code was developed to aid the visualization and evaluation of these recorded interactions. Visualizations produced from this study include bar graphs, network plots, and a table. This study describes in detail the attributes of this network and its most targeted genes and what the results may indicate, as well as the hypothetical role this network plays.
+
+
+100 Word Summary Joseph et al. 2018
+
+In this study, a signaling network was created after a miR mimic of each MetS-FL miR trio (hsa-miR-142-3p, hsa-miR-18b, and hsa-miR-890) was transfected into either CRL-1790 or Caco-2 human colorectal cells. Researchers utilized Occludin and Zona Occludens-1/ZO-1 immunofluorescence staining-confocal microscopy, transepithelial electrical resistance (TEER), and nCounter® Human v3 miRNA, NanoString Technologies to evaluate alterations in the barrier and epithelial cell junction structure. Visualizations such as a network plot and the Log2 counts of untransfected cells were developed. This study describes changes in many miRs expression, structural modifications, as well as a signaling network associated with factors that are linked to injury, inflammation, and hyperplasia.
+
+
 
 <h2 align="left">
 Results
