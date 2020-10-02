@@ -11,6 +11,15 @@ The project is part of UMBC's BTEC495 Professional Internship and Project-based 
 Description of the project
 </h2>
 
+Lipofection Summary 
+
+Lipofection is a technique used to inject genetic material into a cell by means of liposomes. Liposomes are vesicles made up of a phospholipid bilayer making them more easily mergeable with the cell membrane. The standard protocol when performing lipofection using plasmid DNA starts with plating your cells at the appropriate density with medium and then incubating the cells. Following this, DNA plasmids must be prepped appropriately along with the desired reagent(s) and medium to create the transfection reagent. One finished, cells are transfected, typically in their existing growth medium and then placed back in the incubator. When performing transient transfection, the appropriate assay will then be performed to complete this process. On the other hand, if stable transfection is the goal then the transfected cells will continue to be grown and replated. Eventually, cloned colonies will be made and propagated for assay. 
+
+ 
+Nanostring Summary 
+
+Nanostring Technologies, Inc. is a biotechnology company with a focus on developing cancer diagnostic tools. However, the company’s technology also enables a wide range of research with various applications in translational medicine. Moreover, Nanostring now has a wide variety of products ranging from gene expression analysis to microRNA analysis and highly multiplexed spatial profiling of RNA and protein targets. Additionally, Nanostring has developed the nCounter® Analysis System that provides a simple and cost-effective solution for multiplex analysis of up to 800 RNA, DNA, or protein targets from your precious samples. Nanostring Technologies hopes to provide leading institutions and researchers with the ideal tools to further their research and discoveries and translate them into clinically useful diagnostic tools. 
+
 100 Word Summary Robinson 2020
 
 Data from the NCBI GEO database series GS132501 was utilized in this report to create analyses and visualizations of mRNA expression data from four miR-mimic treatments. The bioinformatic methods utilized include pathway scoring, differential expression (DE), and gene-set enrichment (GSE) analyses. The visualizations produced include clustering and principal components analysis (PCA), differential expression volcano plots, heatmaps of pathway scores, and miRNA biogenesis pathway results. The data analysis illustrated in this report represents results from the Advanced Analysis Module 2.0 plugin and Nanostring nSolver 4.0 software. Additionally, this report describes the various miRNA mimics utilized in this bioinformatic analysis as well as the scientific evidence supporting the appropriateness of their use.
