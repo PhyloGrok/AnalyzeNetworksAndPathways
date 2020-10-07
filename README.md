@@ -49,7 +49,7 @@ Results
 ### mRNA Targets per mRNA: Density Plot
 ![](Fig_Output/Rplot01.png)
 
-### NS miRNA hybridization
+### NanoString miRNA Hybridization
 ![](Fig_Output/NS_miRNA_protocol.jpg)
 
 
