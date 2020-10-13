@@ -73,4 +73,10 @@ Robinson JM. 2020. Differential gene expression and functional pathway enrichmen
 
 Robinson JM, Henderson WA. 2018. Modelling the structure of a ceRNA-theoretical, bipartite microRNA-mRNA interaction network regulating intestinal epithelial celluar pathways using R programming.  BMC Research Notes. 11:19. DOI: https://doi.org/10.1186/s13104-018-3126-y.
 
+<h2 align="left">
+Source code adapted for the project:
+</h2>  
+
+[Bipartite/Two-Mode Networks in igraph](https://rpubs.com/pjmurphy/317838)
+
 
