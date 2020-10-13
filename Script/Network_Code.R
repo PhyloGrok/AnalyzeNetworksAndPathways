@@ -1,27 +1,46 @@
 
 if (!require("ggplot2")) {
   install.packages("ggplot2", dependencies = TRUE)
-  library(rstudioapi)
+  library(ggplot2)
 }
 
 if (!require("MASS")) {
   install.packages("MASS", dependencies = TRUE)
-  library(rstudioapi)
+  library(MASS)
 }
 
 if (!require("Matrix")) {
   install.packages("Matrix", dependencies = TRUE)
-  library(rstudioapi)
+  library(Matrix)
 }
 
 if (!require("igraph")) {
   install.packages("igraph", dependencies = TRUE)
-  library(rstudioapi)
+  library(igraph)
 }
 
 
 #Read .csv file into R data
 miR <- read.csv("MirWalk_Trimmed.csv")
+
+nt <- read.csv("Data/MirWalk_Subset.csv", header=TRUE)
+
+head(nt)
+
+## https://rpubs.com/pjmurphy/317838
+## Make a graph object from list
+g <- graph.data.frame(nt)
+## Make a graph g into a bipartite network
+bipartite.mapping(g)
+V(g)$type <- bipartite_mapping(g)$type
+plot(g)
+plot(g, vertex.label.cex = 8.0, vertex.label.color = "black")
+V(g)$color <- ifelse(V(g)$type, "blue", "lightgreen")
+V(g)$shape <- ifelse(V(g)$type, "circle", "square")
+E(g)$color <- "lightgray"
+
+
+plot(g, layout=layout.bipartite, vertex.size=7, vertex.label.cex=0.6)
 
 ##FREQUENCY DISTRIBUTIONS
 ##Plot frequency distributions of mRNA targets per miRNA, and targeting miRNAs per mRNA
@@ -119,4 +138,3 @@ plot(miRgraphAdj, vertex.size=betweenness(miRgraphAdj)/33, edge.width=log10(E(mi
 
 ##For the 5-gene subgraph found in Fig.3C (Input file 'Subset.R'):
 plot(miRgraphAdj, vertex.size=20, edge.width=(E(miRgraphAdj)$weight)/10, layout=layout.fruchterman.reingold)
-
