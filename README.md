@@ -53,7 +53,7 @@ Results
 ![](Fig_Output/NS_miRNA_protocol.jpg)
 
 ### Bipartite mapping
-![](Fig_Output/Bipartite Mapping.jpeg)
+![](Fig_Output/Rplot04.pdf)
 
 
 <h2 align="left">
