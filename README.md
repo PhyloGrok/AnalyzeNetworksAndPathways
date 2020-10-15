@@ -52,6 +52,9 @@ Results
 ### NanoString miRNA Hybridization
 ![](Fig_Output/NS_miRNA_protocol.jpg)
 
+### Bipartite mapping
+![](Fig_Output/Bipartite Mapping.jpg)
+
 
 <h2 align="left">
 Citations:
