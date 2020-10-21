@@ -21,30 +21,15 @@ if (!require("igraph")) {
 
 
 #Read .csv file into R data
-miR <- read.csv("MirWalk_Trimmed.csv")
+
+miR <- read.csv("Data/MirWalk_Trimmed.csv", header=TRUE)
 
 nt <- read.csv("Data/MirWalk_Subset.csv", header=TRUE)
 
-head(nt)
 
-## https://rpubs.com/pjmurphy/317838
-## Make a graph object from list
-g <- graph.data.frame(nt)
-## Make a graph g into a bipartite network
-bipartite.mapping(g)
-V(g)$type <- bipartite_mapping(g)$type
-plot(g)
-plot(g, vertex.label.cex = 8.0, vertex.label.color = "black")
-V(g)$color <- ifelse(V(g)$type, "blue", "lightgreen")
-V(g)$shape <- ifelse(V(g)$type, "circle", "square")
-E(g)$color <- "lightgray"
-
-
-plot(g, layout=layout.bipartite, vertex.size=7, vertex.label.cex=0.6)
-
-##FREQUENCY DISTRIBUTIONS
-##Plot frequency distributions of mRNA targets per miRNA, and targeting miRNAs per mRNA
-##Tabulate the miRWalk output and run a frequency distribution for mRNA-miR/miR-mRNA targeting stats
+## FREQUENCY DISTRIBUTIONS
+## Plot frequency distributions of mRNA targets per miRNA, and targeting miRNAs per mRNA
+## Tabulate the miRWalk output and run a frequency distribution for mRNA-miR/miR-mRNA targeting stats
 library(ggplot2)
 View(miR)
 summary(miR)
@@ -68,6 +53,63 @@ miRNA.freq = table(miRNA)
 miRTable <- cbind(miRNA.freq)
 hist(miRTable, freq=FALSE, main = "mRNA targets per miRNA: Density Plot", xlab = "# of mRNAs targeted", breaks=20, col = "lightgreen")
 curve(dnorm(x, mean=mean(miRNA.freq), sd=sd(miRNA.freq)), add=TRUE, col="blue", lwd=2)
+
+head(nt)
+
+## Visualize the complete bipartite graph
+## https://rpubs.com/pjmurphy/317838
+## Make a graph object from list
+g <- graph.data.frame(nt)
+g <- graph.data.frame(miR)
+## Make a graph g into a bipartite network
+bipartite.mapping(g)
+V(g)$type <- bipartite_mapping(g)$type
+plot(g)
+plot(g, vertex.label.cex = 1.0, vertex.label.color = "black")
+
+
+## Format the labels and node shape/color
+V(g)$color <- ifelse(V(g)$type, "blue", "lightgreen")
+V(g)$shape <- ifelse(V(g)$type, "circle", "square")
+E(g)$color <- "lightgray"
+
+
+plot(g, layout=layout.bipartite, vertex.size=7, vertex.label.cex=0.6)
+
+
+V(g)$label.color <- "black" ##ifelse(V(g)$type, "black", "white")
+## V(g)$label.font <-  0.6
+V(g)$label.cex <- 1 ##ifelse(V(g)$type, 0.8, 1.2)
+## V(g)$label.dist <-0
+V(g)$frame.color <-  "gray"
+V(g)$size <- 5
+
+plot(g, layout = layout_with_graphopt)
+
+plot(g, layout=layout.bipartite, vertex.size=5, vertex.label.cex=0.6)
+
+
+## Analyze the network as a single-mode network
+## According to https://rpubs.com/pjmurphy/317838
+
+## Calculating centrality
+
+types <- V(g)$type                 ## getting each vertex `type` let's us sort easily
+deg <- degree(g)
+bet <- betweenness(g)
+clos <- closeness(g)
+eig <- eigen_centrality(g)$vector
+
+cent_df <- data.frame(types, deg, bet, clos, eig)
+
+cent_df[order(cent_df$type, decreasing = TRUE),] ## sort w/ `order` by `type`
+
+## Size vertices by centralitry
+V(g)$size <- degree(g)
+V(g)$label.cex <- degree(g) * 0.000000000000000000001
+
+plot(g, layout = layout_with_graphopt)
+
 
 ##NETWORK GRAPH
 ##Create and plot a network graph from the adjacency list
