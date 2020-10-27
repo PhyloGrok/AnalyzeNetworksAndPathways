@@ -108,8 +108,12 @@ cent_df[order(cent_df$type, decreasing = TRUE),] ## sort w/ `order` by `type`
 V(g)$size <- degree(g)
 V(g)$label.cex <- degree(g) * 0.000000000000000000001
 
-plot(g, layout = layout_with_graphopt)
+gplot <- plot(g, layout = layout_with_graphopt)
 
+## Save the Graph plot as .png file into fig_output
+png("../fig_output/graph.png")
+print(gplot)
+dev.off()
 
 ##NETWORK GRAPH
 ##Create and plot a network graph from the adjacency list
