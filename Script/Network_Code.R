@@ -1,4 +1,12 @@
 
+
+## Comment the code
+## Install packages
+if (!require("rstudioapi")) {
+  install.packages("rstudioapi", dependencies = TRUE)
+  library(rstudioapi)
+}
+
 if (!require("ggplot2")) {
   install.packages("ggplot2", dependencies = TRUE)
   library(ggplot2)
@@ -19,25 +27,31 @@ if (!require("igraph")) {
   library(igraph)
 }
 
+# Set working directory to source file location
+setwd(dirname(getActiveDocumentContext()$path))       
 
 #Read .csv file into R data
+miR <- read.csv("../Data/MirWalk_Trimmed.csv", header=TRUE)
 
-miR <- read.csv("Data/MirWalk_Trimmed.csv", header=TRUE)
-
-nt <- read.csv("Data/MirWalk_Subset.csv", header=TRUE)
+nt <- read.csv("../Data/MirWalk_Subset.csv", header=TRUE)
 
 
 ## FREQUENCY DISTRIBUTIONS
 ## Plot frequency distributions of mRNA targets per miRNA, and targeting miRNAs per mRNA
 ## Tabulate the miRWalk output and run a frequency distribution for mRNA-miR/miR-mRNA targeting stats
-library(ggplot2)
-View(miR)
+
+#View(miR)
 summary(miR)
 summary(miR$Gene)
 
+#View(nt)
+summary(nt)
+summary(nt$Gene)
+
 library(MASS)
 
-## histogram miRNA targets per mRNA
+## FULL SET HISTOGRAMS
+##  histogram miRNA targets per mRNA
 
 Gene = miR$Gene
 Gene.freq = table(Gene)
@@ -54,39 +68,72 @@ miRTable <- cbind(miRNA.freq)
 hist(miRTable, freq=FALSE, main = "mRNA targets per miRNA: Density Plot", xlab = "# of mRNAs targeted", breaks=20, col = "lightgreen")
 curve(dnorm(x, mean=mean(miRNA.freq), sd=sd(miRNA.freq)), add=TRUE, col="blue", lwd=2)
 
-head(nt)
+## SUBSET HISTOGRAMS
+## histogram miRNA targets per mRNA
+
+Gene = nt$Gene
+Gene.freq = table(Gene)
+GeneTable <- cbind(Gene.freq)
+colors = c("lightgreen")
+hist(GeneTable, freq=FALSE, main="miRNA Targets per mRNA: Density Plot", xlab = "# miRNAs targeting mRNA", breaks=50, col="lightgreen")
+curve(dnorm(x, mean=mean(Gene.freq), sd=sd(Gene.freq)), add=TRUE, col="blue", lwd=2)
+
+## histogram mRNAs targeted by miRNA
+
+miRNA = nt$miRNA
+miRNA.freq = table(miRNA)
+miRTable <- cbind(miRNA.freq)
+hist(miRTable, freq=FALSE, main = "mRNA targets per miRNA: Density Plot", xlab = "# of mRNAs targeted", breaks=20, col = "lightgreen")
+curve(dnorm(x, mean=mean(miRNA.freq), sd=sd(miRNA.freq)), add=TRUE, col="blue", lwd=2)
+
+
+# head(nt)
 
 ## Visualize the complete bipartite graph
 ## https://rpubs.com/pjmurphy/317838
 ## Make a graph object from list
-g <- graph.data.frame(nt)
-g <- graph.data.frame(miR)
+gNT <- graph.data.frame(nt)
+gFULL <- graph.data.frame(miR)
+
 ## Make a graph g into a bipartite network
-bipartite.mapping(g)
-V(g)$type <- bipartite_mapping(g)$type
-plot(g)
-plot(g, vertex.label.cex = 1.0, vertex.label.color = "black")
+bipartite.mapping(gNT)
+V(gNT)$type <- bipartite_mapping(gNT)$type
+plot(gNT)
+plot(gNT, vertex.label.cex = 1.0, vertex.label.color = "black")
 
 
 ## Format the labels and node shape/color
-V(g)$color <- ifelse(V(g)$type, "blue", "lightgreen")
-V(g)$shape <- ifelse(V(g)$type, "circle", "square")
-E(g)$color <- "lightgray"
+## Formatting for bipartite plots
 
+V(gNT)$color <- ifelse(V(gNT)$type, "steelblue", "lightgreen")
+V(gNT)$shape <- ifelse(V(gNT)$type, "circle", "square")
+V(gNT)$label[V(gNT)$type==F] <- nodes2$media[V(net2)$type==F]
+V(gNT)$label <- ""
+E(gNT)$color <- "darkgrey"
 
-plot(g, layout=layout.bipartite, vertex.size=7, vertex.label.cex=0.6)
+plot(gNT, layout=layout.bipartite, vertex.label.cex=0.5, vertex.size=(2-V(gNT)$type)*8)
 
+plot(gNT, layout=layout.bipartite)
 
-V(g)$label.color <- "black" ##ifelse(V(g)$type, "black", "white")
+plot(gNT, layout=layout.bipartite, vertex.size=20, vertex.label.cex=0.5)
+
+V(gNT)$label.color <- "black" ##ifelse(V(g)$type, "black", "white")
 ## V(g)$label.font <-  0.6
-V(g)$label.cex <- 1 ##ifelse(V(g)$type, 0.8, 1.2)
+V(gNT)$label.cex <- 1 ##ifelse(V(g)$type, 0.8, 1.2)
 ## V(g)$label.dist <-0
-V(g)$frame.color <-  "gray"
-V(g)$size <- 5
+V(gNT)$frame.color <-  "gray"
+V(gNT)$size <- 5
 
-plot(g, layout = layout_with_graphopt)
+plot(gNT, layout = layout_with_graphopt)
 
-plot(g, layout=layout.bipartite, vertex.size=5, vertex.label.cex=0.6)
+plot(gNT, layout=layout.bipartite, vertex.size=20, vertex.label.cex=0.5)
+
+## Save Plot to image
+png("../Fig_Output/bipartite.png")
+print(gNTplot)
+dev.off()
+
+
 
 
 ## Analyze the network as a single-mode network
