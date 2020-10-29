@@ -31,11 +31,19 @@ Results
 ### mRNA Targets per mRNA: Density Plot
 ![](Fig_Output/Rplot01.png)
 
+### Bipartite Mapping:
+| miRNAs Targeting Genes in R | miRNAs Targeting Genes Modified |
+  | --- | --- |
+  | ![](Fig_output/Rplot06.png) | ![](Fig_output/Bipartite Mapping.png) |
+  
+  
+Supporting Images
+</h2>
+
+### Graphics: 
+
 ### NanoString miRNA Hybridization
 ![](Fig_Output/NS_miRNA_protocol.jpg)
-
-### Bipartite mapping
-![](Fig_Output/Rplot06.png)
 
 
 <h2 align="left">
