@@ -104,6 +104,7 @@ plot(gNT, vertex.label.cex = 1.0, vertex.label.color = "black")
 
 ## Format the labels and node shape/color
 ## Formatting for bipartite plots
+## https://kateto.net/netscix2016.html
 
 V(gNT)$color <- ifelse(V(gNT)$type, "steelblue", "lightgreen")
 V(gNT)$shape <- ifelse(V(gNT)$type, "circle", "square")
