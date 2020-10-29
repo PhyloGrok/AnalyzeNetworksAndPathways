@@ -32,7 +32,7 @@ Results
 ![](Fig_Output/Rplot01.png)
 
 ### Bipartite Mapping:
-| miRNAs Targeting Genes in R | miRNAs Targeting Genes Modified |
+| miRNAs Targeting Genes in R | miRNAs Targeting Genes |
   | --- | --- |
   | ![](Fig_Output/Rplot06.png) | ![](Fig_Output/BP Mapping.png) |
   
