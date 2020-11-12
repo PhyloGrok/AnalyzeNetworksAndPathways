@@ -42,13 +42,7 @@ nt <- read.csv("../Data/MirWalk_Subset.csv", header=TRUE)
 
 #View(miR)
 summary(miR)
-summary(miR$Gene)
-
-#View(nt)
 summary(nt)
-summary(nt$Gene)
-
-library(MASS)
 
 ## FULL SET HISTOGRAMS
 ##  histogram miRNA targets per mRNA
@@ -57,8 +51,15 @@ Gene = miR$Gene
 Gene.freq = table(Gene)
 GeneTable <- cbind(Gene.freq)
 colors = c("lightgreen")
-hist(GeneTable, freq=FALSE, main="miRNA Targets per mRNA: Density Plot", xlab = "# miRNAs targeting mRNA", breaks=50, col="lightgreen")
+
+
+png("../Fig_Output/H1.png")
+H1 <- hist(GeneTable, freq=FALSE, 
+                            main="miRNA Targets per mRNA: Density Plot", xlab = "# miRNAs targeting mRNA", breaks=50, col="lightgreen"
+                            )
 curve(dnorm(x, mean=mean(Gene.freq), sd=sd(Gene.freq)), add=TRUE, col="blue", lwd=2)
+print(H1)
+dev.off()
 
 ## histogram mRNAs targeted by miRNA
 
@@ -68,26 +69,6 @@ miRTable <- cbind(miRNA.freq)
 hist(miRTable, freq=FALSE, main = "mRNA targets per miRNA: Density Plot", xlab = "# of mRNAs targeted", breaks=20, col = "lightgreen")
 curve(dnorm(x, mean=mean(miRNA.freq), sd=sd(miRNA.freq)), add=TRUE, col="blue", lwd=2)
 
-## SUBSET HISTOGRAMS
-## histogram miRNA targets per mRNA
-
-Gene = nt$Gene
-Gene.freq = table(Gene)
-GeneTable <- cbind(Gene.freq)
-colors = c("lightgreen")
-hist(GeneTable, freq=FALSE, main="miRNA Targets per mRNA: Density Plot", xlab = "# miRNAs targeting mRNA", breaks=50, col="lightgreen")
-curve(dnorm(x, mean=mean(Gene.freq), sd=sd(Gene.freq)), add=TRUE, col="blue", lwd=2)
-
-## histogram mRNAs targeted by miRNA
-
-miRNA = nt$miRNA
-miRNA.freq = table(miRNA)
-miRTable <- cbind(miRNA.freq)
-hist(miRTable, freq=FALSE, main = "mRNA targets per miRNA: Density Plot", xlab = "# of mRNAs targeted", breaks=20, col = "lightgreen")
-curve(dnorm(x, mean=mean(miRNA.freq), sd=sd(miRNA.freq)), add=TRUE, col="blue", lwd=2)
-
-
-# head(nt)
 
 ## Visualize the complete bipartite graph
 ## https://rpubs.com/pjmurphy/317838
@@ -95,22 +76,45 @@ curve(dnorm(x, mean=mean(miRNA.freq), sd=sd(miRNA.freq)), add=TRUE, col="blue", 
 gNT <- graph.data.frame(nt)
 gFULL <- graph.data.frame(miR)
 
-## Make a graph g into a bipartite network
-bipartite.mapping(gNT)
-V(gNT)$type <- bipartite_mapping(gNT)$type
-plot(gNT)
-plot(gNT, vertex.label.cex = 1.0, vertex.label.color = "black")
+gNT <- as.undirected(gNT, mode = c("collapse", "each", "mutual"),
+              edge.attr.comb = igraph_opt("edge.attr.comb"))
 
+## Simplify and make a graph gNT into a bipartite network
+
+bipartite.mapping(gNT)
+
+V(gNT)$type <- bipartite_mapping(gNT)$type
+
+#plot(gNT)
+#plot(gNT, vertex.label.cex = 1.0, vertex.label.color = "black")
 
 ## Format the labels and node shape/color
 ## Formatting for bipartite plots
-## https://kateto.net/netscix2016.html
+##  https://kateto.net/netscix2016.html
 
 V(gNT)$color <- ifelse(V(gNT)$type, "steelblue", "lightgreen")
 V(gNT)$shape <- ifelse(V(gNT)$type, "circle", "square")
-V(gNT)$label[V(gNT)$type==F] <- nodes2$media[V(net2)$type==F]
-V(gNT)$label <- ""
-E(gNT)$color <- "darkgrey"
+
+V(gNT)$color <- c("orange", "steelblue")[V(gNT)$type+1]
+V(gNT)$shape <- c("square", "circle")[V(gNT)$type+1]
+V(gNT)$size <- c(1.5, 20)[V(gNT)$type+1]
+V(gNT)$label.cex <- c(0.0001, 1.0)[V(gNT)$type+1]
+
+V(gNT)$label.cex <- c(0.0001, 0.6)[V(gNT)$type+1]
+V(gNT)$size <- c(3, 20)[V(gNT)$type+1]
+
+
+png("../Fig_Output/gNTplot.png")
+gNTplot <- plot(gNT)
+print(gNTplot)
+dev.off()
+
+png("../Fig_Output/gNTbipart.png")
+gNTplot <- plot(gNT, layout=layout.bipartite)
+print(gNTplot)
+dev.off()
+
+#  V(gNT)$label[V(gNT)$type==F] <- nt$miRNA[V(gNT)$type==F]
 
 plot(gNT, layout=layout.bipartite, vertex.label.cex=0.5, vertex.size=(2-V(gNT)$type)*8)
 
@@ -128,13 +132,6 @@ V(gNT)$size <- 5
 plot(gNT, layout = layout_with_graphopt)
 
 plot(gNT, layout=layout.bipartite, vertex.size=20, vertex.label.cex=0.5)
-
-## Save Plot to image
-png("../Fig_Output/bipartite.png")
-print(gNTplot)
-dev.off()
-
-
 
 
 ## Analyze the network as a single-mode network
