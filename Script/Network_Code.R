@@ -76,6 +76,10 @@ curve(dnorm(x, mean=mean(miRNA.freq), sd=sd(miRNA.freq)), add=TRUE, col="blue", 
 gNT <- graph.data.frame(nt)
 gFULL <- graph.data.frame(miR)
 
+
+## Eliminate the arrowheads. (the graph is assigned as a directed)
+## (https://igraph.org/r/doc/as.directed.html)
+
 gNT <- as.undirected(gNT, mode = c("collapse", "each", "mutual"),
               edge.attr.comb = igraph_opt("edge.attr.comb"))
 
