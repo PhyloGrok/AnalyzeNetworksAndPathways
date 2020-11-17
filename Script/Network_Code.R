@@ -36,6 +36,7 @@ miR <- read.csv("../Data/MirWalk_Trimmed.csv", header=TRUE)
 nt <- read.csv("../Data/MirWalk_Subset.csv", header=TRUE)
 
 
+## Part 1:
 ## FREQUENCY DISTRIBUTIONS
 ## Plot frequency distributions of mRNA targets per miRNA, and targeting miRNAs per mRNA
 ## Tabulate the miRWalk output and run a frequency distribution for mRNA-miR/miR-mRNA targeting stats
