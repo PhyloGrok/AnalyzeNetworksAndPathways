@@ -55,8 +55,8 @@ colors = c("lightgreen")
 
 png("../Fig_Output/H1.png")
 H1 <- hist(GeneTable, freq=FALSE, 
-                            main="miRNA Targets per mRNA: Density Plot", xlab = "# miRNAs targeting mRNA", breaks=50, col="lightgreen"
-                            )
+           main="miRNA Targets per mRNA: Density Plot", xlab = "# miRNAs targeting mRNA", breaks=50, col="lightgreen")
+
 curve(dnorm(x, mean=mean(Gene.freq), sd=sd(Gene.freq)), add=TRUE, col="blue", lwd=2)
 print(H1)
 dev.off()
@@ -66,8 +66,16 @@ dev.off()
 miRNA = miR$miRNA
 miRNA.freq = table(miRNA)
 miRTable <- cbind(miRNA.freq)
-hist(miRTable, freq=FALSE, main = "mRNA targets per miRNA: Density Plot", xlab = "# of mRNAs targeted", breaks=20, col = "lightgreen")
+colors = c("lightgreen")
+
+
+png("../Fig_Output/H2.png")
+H2 <- hist(miRTable, freq=FALSE, 
+           main = "mRNA targets per miRNA: Density Plot", xlab = "# of mRNAs targeted", breaks=20, col = "lightgreen")
+
 curve(dnorm(x, mean=mean(miRNA.freq), sd=sd(miRNA.freq)), add=TRUE, col="blue", lwd=2)
+print(H2)
+dev.off()
 
 
 ## Visualize the complete bipartite graph
@@ -81,7 +89,7 @@ gFULL <- graph.data.frame(miR)
 ## (https://igraph.org/r/doc/as.directed.html)
 
 gNT <- as.undirected(gNT, mode = c("collapse", "each", "mutual"),
-              edge.attr.comb = igraph_opt("edge.attr.comb"))
+                     edge.attr.comb = igraph_opt("edge.attr.comb"))
 
 ## Simplify and make a graph gNT into a bipartite network
 
