@@ -28,15 +28,6 @@ dev.off()
 ```
 ![](Fig_Output/H1.png)
 
-```
-png("../Fig_Output/H1.png")
-H2 <- hist(miRTable, freq=FALSE, 
-           main = "mRNA targets per miRNA: Density Plot", xlab = "# of mRNAs targeted", breaks=20, col = "lightgreen")
-
-curve(dnorm(x, mean=mean(miRNA.freq), sd=sd(miRNA.freq)), add=TRUE, col="blue", lwd=2)
-print(H2)
-dev.off()
-```
 ![](Fig_Output/H2.png)
 
 ##
@@ -71,8 +62,7 @@ eig <- eigen_centrality(g)$vector
 
 cent_df <- data.frame(types, deg, bet, clos, eig)
 ```
-##
-### Results of
+
 ![](Fig_Output/gNTplot.png)
 
 ##
