@@ -75,10 +75,10 @@ cent_df <- data.frame(types, deg, bet, clos, eig)
 ### Results of
 ![](Fig_Output/gNTplot.png)
 
-### Bipartite Mapping:
-| miRNAs Targeting Genes | miRNAs Targeting Genes in R |
-  | --- | --- |
-  | ![](Fig_Output/NetworkVis.png) | ![](Fig_Output/gNTplot.png) |
+##
+### Bipartite Mapping Visual in PowerPoint:
+| miRNAs Targeting Genes |
+![](Fig_Output/NetworkVis.png)
   
   
 <h2 align="left">  
