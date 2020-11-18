@@ -16,22 +16,26 @@ Results
 </h2>
 
 ### Histograms: 
-
-### miRNA Targets per mRNA: Density Plot
-```gNT <- graph.data.frame(nt)
+##
+### Results of
+```
+>gNT <- graph.data.frame(nt)
 
 gNT <- as.undirected(gNT, mode = c("collapse", "each", "mutual"),
                      edge.attr.comb = igraph_opt("edge.attr.comb"))
 
 bipartite.mapping(gNT)
 
-V(gNT)$type <- bipartite_mapping(gNT)$type```
+V(gNT)$type <- bipartite_mapping(gNT)$type
+```
 
 ![](Fig_Output/gNTbipart.png)
 
+### Results of
 ### mRNA Targets per mRNA: Density Plot
 
-```png("../Fig_Output/gNTbipart.png")
+```
+png("../Fig_Output/gNTbipart.png")
 gNTplot <- plot(gNT, layout=layout.bipartite)
 print(gNTplot)
 dev.off()
@@ -42,8 +46,10 @@ bet <- betweenness(g)
 clos <- closeness(g)
 eig <- eigen_centrality(g)$vector
 
-cent_df <- data.frame(types, deg, bet, clos, eig)```
-
+cent_df <- data.frame(types, deg, bet, clos, eig)
+```
+##
+### Results of
 ![](Fig_Output/gNTplot.png)
 
 ### Bipartite Mapping:
