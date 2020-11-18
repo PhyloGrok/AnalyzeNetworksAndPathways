@@ -15,7 +15,8 @@ Description of the project
 Results
 </h2>
 
-### Histograms: 
+## Histograms 
+### Results of mRNA Targets per mRNA: Density Plots
 
 ```
 png("../Fig_Output/H1.png")
@@ -31,7 +32,7 @@ dev.off()
 ![](Fig_Output/H2.png)
 
 ##
-### Results of
+### Results of Bipartite Mapping
 ```
 >gNT <- graph.data.frame(nt)
 
@@ -41,12 +42,25 @@ gNT <- as.undirected(gNT, mode = c("collapse", "each", "mutual"),
 bipartite.mapping(gNT)
 
 V(gNT)$type <- bipartite_mapping(gNT)$type
+
+png("../Fig_Output/gNTbipart.png")
+gNTplot <- plot(gNT, layout=layout.bipartite)
+print(gNTplot)
+dev.off()
+
+types <- V(g)$type                 ## getting each vertex `type` let's us sort easily
+deg <- degree(g)
+bet <- betweenness(g)
+clos <- closeness(g)
+eig <- eigen_centrality(g)$vector
+
+cent_df <- data.frame(types, deg, bet, clos, eig)
 ```
 
 ![](Fig_Output/gNTbipart.png)
 
 ##
-### Results of mRNA Targets per mRNA: Density Plot
+### Results of Bipartite Mapping
 
 ```
 >gNT <- graph.data.frame(nt)
