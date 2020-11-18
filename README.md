@@ -12,29 +12,21 @@ Description of the project
 </h2>
 
 <h2 align="left">
-Introduction
-</h2>
-
-<h2 align="left">
-Methods
-</h2>
-
-<h2 align="left">
 Results
 </h2>
 
 ### Histograms: 
 
 ### miRNA Targets per mRNA: Density Plot
-![](Fig_Output/Rplot.png)
+![](Fig_Output/gNTbipart.png)
 
 ### mRNA Targets per mRNA: Density Plot
-![](Fig_Output/Rplot01.png)
+![](Fig_Output/gNTplot.png)
 
 ### Bipartite Mapping:
 | miRNAs Targeting Genes | miRNAs Targeting Genes in R |
   | --- | --- |
-  | ![](Fig_Output/NetworkVis.png) | ![](Fig_Output/RploBPmap.png) |
+  | ![](Fig_Output/NetworkVis.png) | ![](Fig_Output/gNTplot.png) |
   
   
 <h2 align="left">  
