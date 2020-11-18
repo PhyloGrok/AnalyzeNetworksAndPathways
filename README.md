@@ -49,6 +49,15 @@ V(gNT)$type <- bipartite_mapping(gNT)$type
 ### mRNA Targets per mRNA: Density Plot
 
 ```
+>gNT <- graph.data.frame(nt)
+
+gNT <- as.undirected(gNT, mode = c("collapse", "each", "mutual"),
+                     edge.attr.comb = igraph_opt("edge.attr.comb"))
+
+bipartite.mapping(gNT)
+
+V(gNT)$type <- bipartite_mapping(gNT)$type
+```
 png("../Fig_Output/gNTbipart.png")
 gNTplot <- plot(gNT, layout=layout.bipartite)
 print(gNTplot)
