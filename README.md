@@ -25,12 +25,13 @@ Both protein-protein and miRNA-mRNA interaction networks for data structures tha
 <b>A. Summarizing miRNA-mRNA interactions: Histograms.</b>
 
 ```
+## Export the historgram as .png
 png("../Fig_Output/H1.png")
-H2 <- hist(miRTable, freq=FALSE, 
+H1 <- hist(miRTable, freq=FALSE, 
            main = "mRNA targets per miRNA: Density Plot", xlab = "# of mRNAs targeted", breaks=20, col = "lightgreen")
 
 curve(dnorm(x, mean=mean(miRNA.freq), sd=sd(miRNA.freq)), add=TRUE, col="blue", lwd=2)
-print(H2)
+print(H1)
 dev.off()
 ```
 
