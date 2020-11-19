@@ -6,7 +6,7 @@ Ms. Kathryn Hogan, BTEC 495 intern (Fall 2020)<br>
 
 The project contains work performed by students from UMBC's BTEC495 Professional Internship and Project-based Research Experience as part of  [Translational Life Science Technology (TLST) program](http://shadygrove.umbc.edu/tlst.php) at Universities at Shady Grove Campus.
 
-## I. Networks and Pathways
+## A. Networks and Pathways
 
 Bioinformatic analysis is key to the interpretation of -omics data.  Network and pathway analyses can elucidate the various functional molecular interactions occurring at the molecular and cellular level.  These analyses take many forms, in general the most common types of analyses for -omics data include:
 
@@ -20,9 +20,9 @@ Both protein-protein and miRNA-mRNA interaction networks for data structures tha
 
 <b>3. Gene regulatory network analysis (ie. transcription regulatory networks).</b>
 
-## II. Network analysis of miRNA-mRNA interaction networks
+## B. Network analysis of miRNA-mRNA interaction networks
  
-<b>A. Summarizing miRNA-mRNA interactions: Histograms.</b>
+<b>1. Summarizing miRNA-mRNA interactions: Histograms.</b>
 
 ```
 ## Export the historgram as .png
@@ -38,14 +38,18 @@ dev.off()
 | ------------- |:-------------:| 
 | ![](Fig_Output/H1.png)      | ![](Fig_Output/H2.png) | 
 
-##
-### B. Create the Graph dataframe, visualize as a bipartite network: Plots
+<b>2. Create the Graph dataframe, bipartite annotations, and network plots </b>
 ```
+## Create a graph dataframe
 gNT <- graph.data.frame(nt)
 gNT <- as.undirected(gNT, mode = c("collapse", "each", "mutual"),
                      edge.attr.comb = igraph_opt("edge.attr.comb"))
+
+## Create bipartite mapping
 bipartite.mapping(gNT)
 V(gNT)$type <- bipartite_mapping(gNT)$type
+
+## Create network plots
 gNTplot <- plot(gNT)
 gNTbipart <- plot(gNT, layout=layout.bipartite)
 
@@ -54,8 +58,7 @@ gNTbipart <- plot(gNT, layout=layout.bipartite)
 | ------------- |:-------------:| 
 | ![](Fig_Output/gNTplot.png)      | ![](Fig_Output/gNTbipart.png) | 
 
-##
-### C. Graph Metrics (degree, betweenness, closeness, eigen centrality)
+<b>3. Graph Metrics (degree, betweenness, closeness, eigen centrality) </b>
 
 ```
 types <- V(g)$type                 ## getting each vertex `type` let's us sort easily
