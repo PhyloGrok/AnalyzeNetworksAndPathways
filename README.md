@@ -35,20 +35,16 @@ print(H1)
 dev.off()
 ```
 
-
-
-
-
 | mRNA <- miRNA        | miRNA <- mRNA           | 
 | ------------- |:-------------:| 
 | ![](Fig_Output/H1.png)      | ![](Fig_Output/H2.png) | 
 
 
-
 ##
 ### B. Visualizing Bipartite Networks: Plots
 ```
->gNT <- graph.data.frame(nt)
+
+gNT <- graph.data.frame(nt)
 
 gNT <- as.undirected(gNT, mode = c("collapse", "each", "mutual"),
                      edge.attr.comb = igraph_opt("edge.attr.comb"))
@@ -57,10 +53,16 @@ bipartite.mapping(gNT)
 
 V(gNT)$type <- bipartite_mapping(gNT)$type
 
-png("../Fig_Output/gNTbipart.png")
-gNTplot <- plot(gNT, layout=layout.bipartite)
-print(gNTplot)
-dev.off()
+gNTplot <- plot(gNT)
+
+gNTbipart <- plot(gNT, layout=layout.bipartite)
+
+```
+| Default        | Bipartite layout           | 
+| ------------- |:-------------:| 
+| ![](Fig_Output/gNTplot.png)      | ![](Fig_Output/gNTbipart.png) | 
+
+```
 
 types <- V(g)$type                 ## getting each vertex `type` let's us sort easily
 deg <- degree(g)
@@ -71,23 +73,13 @@ eig <- eigen_centrality(g)$vector
 cent_df <- data.frame(types, deg, bet, clos, eig)
 ```
 
-![](Fig_Output/gNTbipart.png)
+
 
 ##
 ### Results of Bipartite Mapping
 
 ```
->gNT <- graph.data.frame(nt)
 
-gNT <- as.undirected(gNT, mode = c("collapse", "each", "mutual"),
-                     edge.attr.comb = igraph_opt("edge.attr.comb"))
-
-bipartite.mapping(gNT)
-
-V(gNT)$type <- bipartite_mapping(gNT)$type
-
-png("../Fig_Output/gNTbipart.png")
-gNTplot <- plot(gNT, layout=layout.bipartite)
 print(gNTplot)
 dev.off()
 
@@ -100,7 +92,6 @@ eig <- eigen_centrality(g)$vector
 cent_df <- data.frame(types, deg, bet, clos, eig)
 ```
 
-![](Fig_Output/gNTplot.png)
 
 ##
 
