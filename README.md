@@ -6,19 +6,23 @@ Ms. Kathryn Hogan, BTEC 495 intern<br>
 
 The project contains work performed by students from UMBC's BTEC495 Professional Internship and Project-based Research Experience as part of  [Translational Life Science Technology (TLST) program](http://shadygrove.umbc.edu/tlst.php) at Universities at Shady Grove Campus.
 
-<h2 align="left">
-Networks and Pathways
-</h2>
-Bioinformatic analysis is key to the interpretation of -omics data.  Network and pathway analyses can elucidate the various functional molecular interactions occurring at the molecular and cellular level.  These analyses can take many forms, in general the most common applications for -omics data include:
+## Networks and Pathways
 
-1. Molecular interaction networks.
+Bioinformatic analysis is key to the interpretation of -omics data.  Network and pathway analyses can elucidate the various functional molecular interactions occurring at the molecular and cellular level.  These analyses take many forms, in general the most common types of analyses for -omics data include:
 
-2. Gene-ontology and pathway enrichment.
+1. Molecular interaction networks.  A large abundance of yeast-2-hybrid data from the 2000's yielded the ability to model and validate proteome-scale protein-protein interaction networks.  
 
-3. Gene regulatory networks (ie. transcription-factor regulatory networks)
+More recently, during the 2010's, significant miRNA-mRNA interactions data has become available through methodologies around RNA-immunoprecipitation/RNA-seq studies ("RIP-seq").  Data on both bioinformatically predicted and experimentally validated miRNA-mRNA networks are available as large aggregated datasets from the MirWalk2.0 database.  
 
-## Histograms 
-### Results of mRNA Targets per mRNA: Density Plots
+Both protein-protein and miRNA-mRNA interaction networks for data structures that lend themselves to analysis using Graph Theory mathematics.  While Graph Theory has seen hugely successful application to social networks analysis, it is less intesively applied to molecular interaction networks, and therefore development of such applications represents a growth area.
+
+2. Gene-ontology and pathway enrichment analysis.
+
+3. Gene regulatory network analysis (ie. transcription regulatory networks).
+
+### miRNA-mRNA interaction networks
+ 
+### Summarizing miRNA-mRNA interactions: Histograms.
 
 ```
 png("../Fig_Output/H1.png")
