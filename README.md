@@ -89,8 +89,7 @@ cent_df <- data.frame(types, deg, bet, clos, eig)
 ![](Fig_Output/gNTplot.png)
 
 ##
-### Bipartite Mapping Visual in PowerPoint:
-| miRNAs Targeting Genes |
+### Bipartite Mapping Visual in PowerPoint of miRNAs Targeting Genes:
 ![](Fig_Output/NetworkVis.png)
   
   
