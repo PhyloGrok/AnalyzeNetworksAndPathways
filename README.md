@@ -22,7 +22,7 @@ Both protein-protein and miRNA-mRNA interaction networks for data structures tha
 
 ## II. Network analysis of miRNA-mRNA interaction networks
  
-<b>Summarizing miRNA-mRNA interactions: Histograms.
+<b>A. Summarizing miRNA-mRNA interactions: Histograms.
 
 ```
 png("../Fig_Output/H1.png")
@@ -38,7 +38,7 @@ dev.off()
 ![](Fig_Output/H2.png)
 
 ##
-### Results of Bipartite Mapping
+### B. Visualizing Bipartite Networks: Plots
 ```
 >gNT <- graph.data.frame(nt)
 
@@ -95,11 +95,6 @@ cent_df <- data.frame(types, deg, bet, clos, eig)
 ![](Fig_Output/gNTplot.png)
 
 ##
-### Bipartite Mapping Visual in PowerPoint of miRNAs Targeting Genes:
-![](Fig_Output/NetworkVis.png)
-  
-
-
 
 <h2 align="left">
 Citations:
