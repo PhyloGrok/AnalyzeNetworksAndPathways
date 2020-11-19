@@ -25,7 +25,7 @@ Both protein-protein and miRNA-mRNA interaction networks for data structures tha
 <b>1. Summarizing miRNA-mRNA interactions: Histograms.</b>
 
 ```
-## Export the historgram as .png
+## Export the histogram as .png
 png("../Fig_Output/H1.png")
 H1 <- hist(miRTable, freq=FALSE, 
            main = "mRNA targets per miRNA: Density Plot", xlab = "# of mRNAs targeted", breaks=20, col = "lightgreen")
