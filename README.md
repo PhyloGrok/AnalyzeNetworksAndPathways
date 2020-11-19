@@ -6,7 +6,7 @@ Ms. Kathryn Hogan, BTEC 495 intern<br>
 
 The project contains work performed by students from UMBC's BTEC495 Professional Internship and Project-based Research Experience as part of  [Translational Life Science Technology (TLST) program](http://shadygrove.umbc.edu/tlst.php) at Universities at Shady Grove Campus.
 
-## Networks and Pathways
+## I. Networks and Pathways
 
 Bioinformatic analysis is key to the interpretation of -omics data.  Network and pathway analyses can elucidate the various functional molecular interactions occurring at the molecular and cellular level.  These analyses take many forms, in general the most common types of analyses for -omics data include:
 
@@ -20,7 +20,7 @@ Both protein-protein and miRNA-mRNA interaction networks for data structures tha
 
 <b>3. Gene regulatory network analysis (ie. transcription regulatory networks).</b>
 
-### Network analysis of miRNA-mRNA interaction networks
+## II. Network analysis of miRNA-mRNA interaction networks
  
 <b>Summarizing miRNA-mRNA interactions: Histograms.
 
@@ -98,15 +98,7 @@ cent_df <- data.frame(types, deg, bet, clos, eig)
 ### Bipartite Mapping Visual in PowerPoint of miRNAs Targeting Genes:
 ![](Fig_Output/NetworkVis.png)
   
-  
-<h2 align="left">  
-Supporting Images
-</h2>
 
-### Graphics: 
-
-### NanoString miRNA Hybridization
-![](Fig_Output/NS_miRNA_protocol.jpg)
 
 
 <h2 align="left">
