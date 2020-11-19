@@ -34,34 +34,25 @@ curve(dnorm(x, mean=mean(miRNA.freq), sd=sd(miRNA.freq)), add=TRUE, col="blue", 
 print(H1)
 dev.off()
 ```
-
 | mRNA <- miRNA        | miRNA <- mRNA           | 
 | ------------- |:-------------:| 
 | ![](Fig_Output/H1.png)      | ![](Fig_Output/H2.png) | 
 
-
 ##
 ### B. Visualizing Bipartite Networks: Plots
 ```
-
 gNT <- graph.data.frame(nt)
-
 gNT <- as.undirected(gNT, mode = c("collapse", "each", "mutual"),
                      edge.attr.comb = igraph_opt("edge.attr.comb"))
-
 bipartite.mapping(gNT)
-
 V(gNT)$type <- bipartite_mapping(gNT)$type
-
 gNTplot <- plot(gNT)
-
 gNTbipart <- plot(gNT, layout=layout.bipartite)
 
 ```
 | Default (gNTplot)        | Bipartite layout (gNTbipart)           | 
 | ------------- |:-------------:| 
 | ![](Fig_Output/gNTplot.png)      | ![](Fig_Output/gNTbipart.png) | 
-
 
 ##
 ### C. Graph Metrics (degree, betweenness, closeness, eigen centrality)
@@ -75,7 +66,6 @@ eig <- eigen_centrality(g)$vector
 
 cent_df <- data.frame(types, deg, bet, clos, eig)
 ```
-
 ##
 
 <h2 align="left">
