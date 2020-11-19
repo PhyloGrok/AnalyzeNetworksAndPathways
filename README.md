@@ -10,19 +10,19 @@ The project contains work performed by students from UMBC's BTEC495 Professional
 
 Bioinformatic analysis is key to the interpretation of -omics data.  Network and pathway analyses can elucidate the various functional molecular interactions occurring at the molecular and cellular level.  These analyses take many forms, in general the most common types of analyses for -omics data include:
 
-1. Molecular interaction networks.  A large abundance of yeast-2-hybrid data from the 2000's yielded the ability to model and validate proteome-scale protein-protein interaction networks.  
+<b>1. Molecular interaction networks.</b>  
 
-More recently, during the 2010's, significant miRNA-mRNA interactions data has become available through methodologies around RNA-immunoprecipitation/RNA-seq studies ("RIP-seq").  Data on both bioinformatically predicted and experimentally validated miRNA-mRNA networks are available as large aggregated datasets from the MirWalk2.0 database.  
+A large abundance of yeast-2-hybrid data from the 2000's yielded the ability to model and validate proteome-scale protein-protein interaction networks.  More recently, during the 2010's, significant miRNA-mRNA interactions data has become available through methodologies around RNA-immunoprecipitation/RNA-seq studies ("RIP-seq").  Data on both bioinformatically predicted and experimentally validated miRNA-mRNA networks are available as large aggregated datasets from the MirWalk2.0 database.  
 
 Both protein-protein and miRNA-mRNA interaction networks for data structures that lend themselves to analysis using Graph Theory mathematics.  While Graph Theory has seen hugely successful application to social networks analysis, it is less intesively applied to molecular interaction networks, and therefore development of such applications represents a growth area.
 
-2. Gene-ontology and pathway enrichment analysis.
+<b>2. Gene-ontology and pathway enrichment analysis.</b>
 
-3. Gene regulatory network analysis (ie. transcription regulatory networks).
+<b>3. Gene regulatory network analysis (ie. transcription regulatory networks).</b>
 
-### miRNA-mRNA interaction networks
+### Network analysis of miRNA-mRNA interaction networks
  
-### Summarizing miRNA-mRNA interactions: Histograms.
+#### Summarizing miRNA-mRNA interactions: Histograms.
 
 ```
 png("../Fig_Output/H1.png")
