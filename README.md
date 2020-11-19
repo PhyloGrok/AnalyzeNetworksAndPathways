@@ -9,7 +9,13 @@ The project contains work performed by students from UMBC's BTEC495 Professional
 <h2 align="left">
 Networks and Pathways
 </h2>
+Bioinformatic analysis is key to the interpretation of -omics data.  Network and pathway analyses can elucidate the various functional molecular interactions occurring at the molecular and cellular level.  These analyses can take many forms, in general the most common applications for -omics data include:
 
+1. Molecular interaction networks.
+
+2. Gene-ontology and pathway enrichment.
+
+3. Gene regulatory networks (ie. transcription-factor regulatory networks)
 
 ## Histograms 
 ### Results of mRNA Targets per mRNA: Density Plots
