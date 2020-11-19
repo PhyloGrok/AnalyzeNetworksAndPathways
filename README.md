@@ -58,7 +58,7 @@ gNTplot <- plot(gNT)
 gNTbipart <- plot(gNT, layout=layout.bipartite)
 
 ```
-| Default        | Bipartite layout           | 
+| Default (gNTplot)        | Bipartite layout (gNTbipart)           | 
 | ------------- |:-------------:| 
 | ![](Fig_Output/gNTplot.png)      | ![](Fig_Output/gNTbipart.png) | 
 
