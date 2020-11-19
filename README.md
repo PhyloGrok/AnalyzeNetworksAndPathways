@@ -92,6 +92,6 @@ Robinson JM, Henderson WA. 2018. Modelling the structure of a ceRNA-theoretical,
 Source code adapted for the project:
 </h2>  
 
-[Bipartite/Two-Mode Networks in igraph](https://rpubs.com/pjmurphy/317838)
+[Murphy & Knapp. Bipartite/Two-Mode Networks in igraph. RPubs.com](https://rpubs.com/pjmurphy/317838)
 
-
+[Ognayova. Network Analysis and Visualization with R and igraph. Kateto.net](https://kateto.net/netscix2016.html)
