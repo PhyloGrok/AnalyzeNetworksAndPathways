@@ -22,7 +22,7 @@ Both protein-protein and miRNA-mRNA interaction networks for data structures tha
 
 ### Network analysis of miRNA-mRNA interaction networks
  
-#### Summarizing miRNA-mRNA interactions: Histograms.
+<b>Summarizing miRNA-mRNA interactions: Histograms.
 
 ```
 png("../Fig_Output/H1.png")
