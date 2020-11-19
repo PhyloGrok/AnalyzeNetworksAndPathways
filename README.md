@@ -1,19 +1,15 @@
 <h1 align="center">
 Analyze Networks and Pathways</h1>
 
-
+Dr. Jeffrey Robinson, BTEC 495 project supervisor<br>
 Ms. Kathryn Hogan, BTEC 495 intern<br>
-Dr. Jeffrey Robinson, BTEC 495 project adviser
 
-The project is part of UMBC's BTEC495 Professional Internship and Project-based Research Experience, Ms. Hogan is a student in the [Translational Life Science Technology (TLST) program](http://shadygrove.umbc.edu/tlst.php) at Universities at Shady Grove Campus.
-
-<h2 align="left">
-Description of the project
-</h2>
+The project contains work performed by students from UMBC's BTEC495 Professional Internship and Project-based Research Experience as part of  [Translational Life Science Technology (TLST) program](http://shadygrove.umbc.edu/tlst.php) at Universities at Shady Grove Campus.
 
 <h2 align="left">
-Results
+Networks and Pathways
 </h2>
+
 
 ## Histograms 
 ### Results of mRNA Targets per mRNA: Density Plots
