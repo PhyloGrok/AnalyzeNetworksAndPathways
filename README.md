@@ -39,7 +39,7 @@ dev.off()
 | ![](Fig_Output/H1.png)      | ![](Fig_Output/H2.png) | 
 
 ##
-### B. Visualizing Bipartite Networks: Plots
+### B. Create the Graph dataframe, visualize as a bipartite network: Plots
 ```
 gNT <- graph.data.frame(nt)
 gNT <- as.undirected(gNT, mode = c("collapse", "each", "mutual"),
