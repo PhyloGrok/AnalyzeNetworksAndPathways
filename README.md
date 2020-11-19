@@ -12,9 +12,9 @@ Bioinformatic analysis is key to the interpretation of -omics data.  Network and
 
 <b>1. Molecular interaction networks.</b>  
 
-A large abundance of yeast-2-hybrid data from the 2000's yielded the ability to model and validate protein-protein interaction networks at proteome-scale.  During the 2010's, significant miRNA-mRNA interaction data has become available through RNA-immunoprecipitation/RNA-seq studies("RIP-seq").  These studies use Argonaute immunoprecipitation with RNA-seq to develop a transcriptome-wide view of miRNA-mRNA interactions in biological context.  Data on both bioinformatically predicted and experimentally validated miRNA-mRNA networks are available as large aggregated datasets from the MirWalk2.0 database.  
+A large abundance of yeast-2-hybrid data from the 2000's yielded the ability to model and validate protein-protein interaction networks at proteome-scale.  During the 2010's, significant miRNA-mRNA interaction data has become available through RNA-immunoprecipitation/RNA-seq studies("RIP-seq").  These studies use Argonaute immunoprecipitation with RNA-seq to develop a transcriptome-wide model for miRNA-mRNA interactions in biological context.  Data on both bioinformatically predicted and experimentally validated miRNA-mRNA interactions are available as large aggregated datasets from the MirWalk2.0 database.  
 
-Both protein-protein and miRNA-mRNA interaction networks for data structures that lend themselves to analysis using Graph Theory mathematics.  While Graph Theory has seen hugely successful application to social networks analysis, it is less intesively applied to molecular interaction networks, and therefore development of such applications represents a growth area.
+Both protein-protein and miRNA-mRNA interaction networks form data structures that lend themselves to analysis using Graph Theory mathematics.  While Graph Theory has seen hugely successful application to social networks analysis, it is less intesively applied to molecular interaction networks, and therefore development of such applications represents a growth area.
 
 <b>2. Gene-ontology and pathway enrichment analysis.</b>
 
