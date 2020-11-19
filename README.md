@@ -2,7 +2,7 @@
 Analyze Networks and Pathways</h1>
 
 Dr. Jeffrey Robinson, BTEC 495 project supervisor<br>
-Ms. Kathryn Hogan, BTEC 495 intern<br>
+Ms. Kathryn Hogan, BTEC 495 intern (Fall 2020)<br>
 
 The project contains work performed by students from UMBC's BTEC495 Professional Internship and Project-based Research Experience as part of  [Translational Life Science Technology (TLST) program](http://shadygrove.umbc.edu/tlst.php) at Universities at Shady Grove Campus.
 
@@ -33,9 +33,16 @@ curve(dnorm(x, mean=mean(miRNA.freq), sd=sd(miRNA.freq)), add=TRUE, col="blue", 
 print(H2)
 dev.off()
 ```
-![](Fig_Output/H1.png)
 
-![](Fig_Output/H2.png)
+
+
+
+
+| mRNA <- miRNA        | miRNA <- mRNA           | 
+| ------------- |:-------------:| 
+| ![](Fig_Output/H1.png)      | ![](Fig_Output/H2.png) | 
+
+
 
 ##
 ### B. Visualizing Bipartite Networks: Plots
