@@ -62,27 +62,11 @@ gNTbipart <- plot(gNT, layout=layout.bipartite)
 | ------------- |:-------------:| 
 | ![](Fig_Output/gNTplot.png)      | ![](Fig_Output/gNTbipart.png) | 
 
-```
-
-types <- V(g)$type                 ## getting each vertex `type` let's us sort easily
-deg <- degree(g)
-bet <- betweenness(g)
-clos <- closeness(g)
-eig <- eigen_centrality(g)$vector
-
-cent_df <- data.frame(types, deg, bet, clos, eig)
-```
-
-
 
 ##
-### Results of Bipartite Mapping
+### C. Graph Metrics (degree, betweenness, closeness, eigen centrality)
 
 ```
-
-print(gNTplot)
-dev.off()
-
 types <- V(g)$type                 ## getting each vertex `type` let's us sort easily
 deg <- degree(g)
 bet <- betweenness(g)
@@ -91,7 +75,6 @@ eig <- eigen_centrality(g)$vector
 
 cent_df <- data.frame(types, deg, bet, clos, eig)
 ```
-
 
 ##
 
