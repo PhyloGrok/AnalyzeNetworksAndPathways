@@ -23,6 +23,7 @@ Both protein-protein and miRNA-mRNA interaction networks for data structures tha
 ## B. Network analysis of miRNA-mRNA interaction networks
  
 <b>1. Summarizing miRNA-mRNA interactions: Histograms.</b>
+(histogram code adapted from Robinson & Henderson (2018))
 
 ```
 ## Export the histogram as .png
@@ -39,6 +40,7 @@ dev.off()
 | ![](Fig_Output/H1.png)      | ![](Fig_Output/H2.png) | 
 
 <b>2. Create the Graph dataframe, bipartite annotations, and network plots </b>
+
 ```
 ## Create a graph dataframe
 gNT <- graph.data.frame(nt)
