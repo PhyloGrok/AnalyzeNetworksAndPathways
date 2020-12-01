@@ -84,13 +84,11 @@ cent_df <- data.frame(types, deg, bet, clos, eig)
 | ![](Fig_Output/)      | ![](Fig_Output/) | 
 
 
-|           | | Types       | | Degree       | | Betweeness      | | Closeness      | Eigen Centrality          | 
-| ------------- |:-------------:| 
+|                     | | Types          | | Degree          | | Betweeness          | | Closeness         | | Eigen Centrality          | 
 
-| Full (250 genes)       | |       | |      | |       |           | 
-| ------------- |:-------------:| 
+| Full (250 genes)    | |       ![](Fig_Output/)         | |    ![](Fig_Output/)             | |     ![](Fig_Output/)                | |      ![](Fig_Output/)             | |               ![](Fig_Output/)            | 
 
-| Subset (5 genes)       | |       | |       | |       |           | 
+| Subset (5 genes)    | |      ![](Fig_Output/)          | |        ![](Fig_Output/)         | |          ![](Fig_Output/)           | |          ![](Fig_Output/)         | |          ![](Fig_Output/)                 | 
 
 
 ##
