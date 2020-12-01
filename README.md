@@ -80,7 +80,6 @@ cent_df <- data.frame(types, deg, bet, clos, eig)
 | Full (250 genes)       | Subset (5 genes)          | 
 | ------------- |:-------------:| 
 | ![](Fig_Output/gFULLbipart.png)      | ![](Fig_Output/gNTbipart.png) | 
-| ------------- |:-------------:| 
 | ![](Fig_Output/gFULLplot.png)      | ![](Fig_Output/gNTplot.png) | 
 
 
