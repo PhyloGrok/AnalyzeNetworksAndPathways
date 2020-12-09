@@ -89,62 +89,62 @@ gFULL <- graph.data.frame(miR)
 ## Eliminate the arrowheads. (the graph is assigned as a directed)
 ## (https://igraph.org/r/doc/as.directed.html)
 
-gFULL <- as.undirected(gFULL, mode = c("collapse", "each", "mutual"),
+gNT <- as.undirected(gNT, mode = c("collapse", "each", "mutual"),
                      edge.attr.comb = igraph_opt("edge.attr.comb"))
 
 ## Simplify and make a graph gNT into a bipartite network
 
-bipartite.mapping(gFULL)
+bipartite.mapping(gNT)
 
-V(gFULL)$type <- bipartite_mapping(gFULL)$type
+V(gNT)$type <- bipartite_mapping(gNT)$type
 
-#plot(gFULL)
-#plot(gFULL, vertex.label.cex = 1.0, vertex.label.color = "black")
+#plot(gNT)
+#plot(gNT, vertex.label.cex = 1.0, vertex.label.color = "black")
 
 ## Format the labels and node shape/color
 ## Formatting for bipartite plots
 ##  https://kateto.net/netscix2016.html
 
-V(gFULL)$color <- ifelse(V(gFULL)$type, "steelblue", "lightgreen")
-V(gFULL)$shape <- ifelse(V(gFULL)$type, "circle", "square")
+V(gNT)$color <- ifelse(V(gNT)$type, "steelblue", "lightgreen")
+V(gNT)$shape <- ifelse(V(gNT)$type, "circle", "square")
 
-V(gFULL)$color <- c("orange", "steelblue")[V(gFULL)$type+1]
-V(gFULL)$shape <- c("square", "circle")[V(gFULL)$type+1]
-V(gFULL)$size <- c(1.5, 20)[V(gFULL)$type+1]
-V(gFULL)$label.cex <- c(0.0001, 1.0)[V(gFULL)$type+1]
+V(gNT)$color <- c("orange", "steelblue")[V(gNT)$type+1]
+V(gNT)$shape <- c("square", "circle")[V(gNT)$type+1]
+V(gNT)$size <- c(1.5, 20)[V(gNT)$type+1]
+V(gNT)$label.cex <- c(0.0001, 1.0)[V(gNT)$type+1]
 
-V(gFULL)$label.cex <- c(0.0001, 0.6)[V(gFULL)$type+1]
-V(gFULL)$size <- c(3, 20)[V(gFULL)$type+1]
+V(gNT)$label.cex <- c(0.0001, 0.6)[V(gNT)$type+1]
+V(gNT)$size <- c(3, 20)[V(gNT)$type+1]
 
 
-png("../Fig_Output/gFULLplot.png")
-gFULLplot <- plot(gFULL)
-print(gFULLplot)
+png("../Fig_Output/gNTplot.png")
+gNTplot <- plot(gNT)
+print(gNTplot)
 dev.off()
 
-png("../Fig_Output/gFULLbipart.png")
-gFULLplot <- plot(gFULL, layout=layout.bipartite)
-print(gFULLplot)
+png("../Fig_Output/gNTbipart.png")
+gNTplot <- plot(gNT, layout=layout.bipartite)
+print(gNTplot)
 dev.off()
 
-#  V(gFULL)$label[V(gFULL)$type==F] <- nt$miRNA[V(gFULL)$type==F]
+#  V(gNT)$label[V(gNT)$type==F] <- nt$miRNA[V(gNT)$type==F]
 
-plot(gFULL, layout=layout.bipartite, vertex.label.cex=0.5, vertex.size=(2-V(gFULL)$type)*8)
+plot(gNT, layout=layout.bipartite, vertex.label.cex=0.5, vertex.size=(2-V(gNT)$type)*8)
 
-plot(gFULL, layout=layout.bipartite)
+plot(gNT, layout=layout.bipartite)
 
-plot(gFULL, layout=layout.bipartite, vertex.size=20, vertex.label.cex=0.5)
+plot(gNT, layout=layout.bipartite, vertex.size=20, vertex.label.cex=0.5)
 
-V(gFULL)$label.color <- "black" ##ifelse(V(gFULL)$type, "black", "white")
-## V(gFULL)$label.font <-  0.6
-V(gFULL)$label.cex <- 1 ##ifelse(V(gFULL)$type, 0.8, 1.2)
-## V(gFULL)$label.dist <-0
-V(gFULL)$frame.color <-  "gray"
-V(gFULL)$size <- 5
+V(gNT)$label.color <- "black" ##ifelse(V(gNT)$type, "black", "white")
+## V(gNT)$label.font <-  0.6
+V(gNT)$label.cex <- 1 ##ifelse(V(gNT)$type, 0.8, 1.2)
+## V(gNT)$label.dist <-0
+V(gNT)$frame.color <-  "gray"
+V(gNT)$size <- 5
 
-plot(gFULL, layout = layout_with_graphopt)
+plot(gNT, layout = layout_with_graphopt)
 
-plot(gFULL, layout=layout.bipartite, vertex.size=20, vertex.label.cex=0.5)
+plot(gNT, layout=layout.bipartite, vertex.size=20, vertex.label.cex=0.5)
 
 
 ## Analyze the network as a single-mode network
@@ -153,19 +153,21 @@ plot(gFULL, layout=layout.bipartite, vertex.size=20, vertex.label.cex=0.5)
 
 ## Calculating centrality
 
-types <- V(gFULL)$type                 ## getting each vertex `type` let's us sort easily
-deg <- degree(gFULL)
-bet <- betweenness(gFULL)
-clos <- closeness(gFULL)
-eig <- eigen_centrality(gFULL)$vector
+types <- V(gNT)$type                 ## getting each vertex `type` let's us sort easily
+deg <- degree(gNT)
+bet <- betweenness(gNT)
+clos <- closeness(gNT)
+eig <- eigen_centrality(gNT)$vector
 
 cent_df <- data.frame(types, deg, bet, clos, eig)
 
 cent_df[order(cent_df$type, decreasing = TRUE),] ## sort w/ `order` by `type`
 
-cent_df <- read.csv("AnalyzeNetworksAndPathways-master/Data/Mirwalk_Trimmed.csv", header = TRUE)
+## Export summary table of cent_df data frame
+## Using code from https://www.youtube.com/watch?v=WjpcbmcJjjM
+
 head(cent_df)
-write.table(cent_df, file="Trimmed.csv", sep=",")
+write.table(summary(cent_df), file="Subset.csv", sep=",")
 
 ## Size vertices by centralitry
 V(gNT)$size <- degree(gNT)
