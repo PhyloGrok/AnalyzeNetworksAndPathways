@@ -61,13 +61,8 @@ gNTplot <- plot(gNT)
 gNTbipart <- plot(gNT, layout=layout.bipartite)
 
 ```
-| Default (gNTplot)        | Bipartite layout (gNTbipart)           | 
-| ------------- |:-------------:| 
-| ![](Fig_Output/gNTplot.png)      | ![](Fig_Output/gNTbipart.png) | 
 
-
-
-| Full (250 genes)       | Subset (5 genes)          | 
+| Full Network (250 genes)       | Subset Network (5 genes)          | 
 | ------------- |:-------------:| 
 | ![](Fig_Output/gFULLbipart.png)      | ![](Fig_Output/gNTbipart.png) | 
 | ![](Fig_Output/gFULLplot.png)      | ![](Fig_Output/gNTplot.png) | 
@@ -83,15 +78,34 @@ clos <- closeness(g)
 eig <- eigen_centrality(g)$vector
 
 cent_df <- data.frame(types, deg, bet, clos, eig)
+
+head(cent_df)
+write.table(summary(cent_df), file="Subset.csv", sep=",")
+
 ```
 
-
-|                     | | Types          | | Degree          | | Betweeness          | | Closeness         | | Eigen Centrality          | 
-
-| Full (250 genes)    | |       ![](Fig_Output/)         | |    ![](Fig_Output/)             | |     ![](Fig_Output/)                | |      ![](Fig_Output/)             | |               ![](Fig_Output/)            | 
-
-| Subset (5 genes)    | |      ![](Fig_Output/)          | |        ![](Fig_Output/)         | |          ![](Fig_Output/)           | |          ![](Fig_Output/)         | |          ![](Fig_Output/)                 | 
-
+	 Types	Degree	Betweenness	Closeness	Eigen Centrality
+  
+| Full Network (250 genes)					
+|     Types    	|        Degree      |   Betweenness   	|      Closeness     	| Eigen Centrality |
+| ------------- |:-------------:| | ------------- |:-------------:| | ------------- |
+| Mode: logical | 	  	Min:  1.000   	| 	 Min: 0.00     	|  Min: 1.379e-06    	|   Min: 0.00000   |  
+|  FALSE: 657   |   	1st Qu: 2.000  	|  1st Qu: 19.72  	| 1st Qu: 1.733e-04  	|  1st Qu: 0.02320 |  
+|   TRUE: 196   |   	Median: 4.000   |	Median: 140.20  	| Median: 1.802e-04  	|  Median: 0.05657 |  
+	                  | 	 Mean: 8.005 	 	|  Mean: 1066.93   | 	Mean: 1.802e-04   	|  Mean: 0.09970   |
+		                 | 3rd Qu:  9.000   | 3rd Qu: 857.36   |	3rd Qu: 1.887e-04  	| 3rd Qu: 0.12992  |
+               	   | 	Max: 110.000   	|  Max: 35087.91   |  	Max: 2.115e-04   	|  	Max: 1.00000   |
+                   
+ | Subset Network (5 genes)					
+|     Types    	|        Degree      |   Betweenness   	|      Closeness     	| Eigen Centrality |
+| ------------- |:-------------:| | ------------- |:-------------:| | ------------- |
+| Mode: logical | 	  	Min:  1.000   	| 	 Min: 0.00     	|  Min: 0.001095    	|   Min: 0.03862    |  
+|  FALSE: 261   |   	1st Qu: 1.000  	|  1st Qu: 0.00   	| 1st Qu: 0.001107  	|  1st Qu: 0.04730  |  
+|    TRUE: 5    |   	Median: 1.000   |	Median: 0.00    	| Median: 0.001198  	|  Median: 0.07239  |  
+	                  | 	 Mean: 3.195 	 	|  Mean: 270.65    | 	Mean:  0.001264   |  Mean: 0.10220   |
+		                 | 3rd Qu:  2.000   | 3rd Qu: 86.99    |	3rd Qu: 0.001361  	| 3rd Qu: 0.12992  |
+               	   | 	Max: 110.000   	|  Max: 14546.87   |  	Max: 0.001905   	|  	Max: 1.00000   |                  
+   
 
 ##
 
