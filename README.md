@@ -84,12 +84,13 @@ write.table(summary(cent_df), file="Subset.csv", sep=",")
 
 ```
 
-| Full Network (250 Genes) | Degree | Betweeness | Closeness | Eigen Centrality |
-| --- | --- |
-| Mode:Logical | Mean: 8.005 | Mean: 1066.93 | Mean: 1.802e-04 | Mean: 0.09970 |
-| FALSE: 657 |   |
-| TRUE: 196 |   |
-| Subset Network (5 Genes) | Degree | Betweeness | Closeness | Eigen Centrality |
+| Full Network (250 Genes) | Types | Degree | Betweeness | Closeness | Eigen Centrality |
+| ------------------------ | ----- | ------ | ---------- | --------- | ---------------- |
+|   | Mode:Logical | Mean: 8.005 | Mean: 1066.93 | Mean: 1.802e-04 | Mean: 0.09970 |
+|   | FALSE: 657 |
+|   | TRUE: 196 |
+
+| Subset Network (5 Genes) | Types | Degree | Betweeness | Closeness | Eigen Centrality |
 | --- | --- |
 | Mode:Logical | Mean: 3.195 | Mean: 270.65 | Mean: 0.001264 | Mean: 0.10220 |
 | FALSE: 261 |   |
