@@ -1,6 +1,3 @@
-
-
-## Comment the code
 ## Install packages
 if (!require("rstudioapi")) {
   install.packages("rstudioapi", dependencies = TRUE)
@@ -92,11 +89,18 @@ gFULL <- graph.data.frame(miR)
 gNT <- as.undirected(gNT, mode = c("collapse", "each", "mutual"),
                      edge.attr.comb = igraph_opt("edge.attr.comb"))
 
+gFULL <- as.undirected(gFULL, mode = c("collapse", "each", "mutual"),
+                     edge.attr.comb = igraph_opt("edge.attr.comb"))
+
+
 ## Simplify and make a graph gNT into a bipartite network
 
 bipartite.mapping(gNT)
-
 V(gNT)$type <- bipartite_mapping(gNT)$type
+
+bipartite.mapping(gFULL)
+V(gFULL)$type <- bipartite_mapping(gFULL)$type
+
 
 #plot(gNT)
 #plot(gNT, vertex.label.cex = 1.0, vertex.label.color = "black")
@@ -110,46 +114,42 @@ V(gNT)$shape <- ifelse(V(gNT)$type, "circle", "square")
 
 V(gNT)$color <- c("orange", "steelblue")[V(gNT)$type+1]
 V(gNT)$shape <- c("square", "circle")[V(gNT)$type+1]
-V(gNT)$size <- c(1.5, 20)[V(gNT)$type+1]
-V(gNT)$label.cex <- c(0.0001, 1.0)[V(gNT)$type+1]
-
 V(gNT)$label.cex <- c(0.0001, 0.6)[V(gNT)$type+1]
 V(gNT)$size <- c(3, 20)[V(gNT)$type+1]
 
-
+plot(gNT)
 png("../Fig_Output/gNTplot.png")
 gNTplot <- plot(gNT)
 print(gNTplot)
 dev.off()
 
+plot(gNT, layout=layout.bipartite)
 png("../Fig_Output/gNTbipart.png")
 gNTplot <- plot(gNT, layout=layout.bipartite)
 print(gNTplot)
 dev.off()
 
-#  V(gNT)$label[V(gNT)$type==F] <- nt$miRNA[V(gNT)$type==F]
 
-plot(gNT, layout=layout.bipartite, vertex.label.cex=0.5, vertex.size=(2-V(gNT)$type)*8)
+##FullGraph
+V(gFULL)$color <- c("orange", "steelblue")[V(gFULL)$type+1]
+V(gFULL)$shape <- c("square", "circle")[V(gFULL)$type+1]
+V(gFULL)$label.cex <- c(0.0001, 0.1)[V(gFULL)$type+1]
+V(gFULL)$size <- c(1.5, 3)[V(gFULL)$type+1]
 
-plot(gNT, layout=layout.bipartite)
+plot(gFULL)
+png("../Fig_Output/gFULLplot.png")
+gFULLplot <- plot(gFULL)
+print(gFULLplot)
+dev.off()
 
-plot(gNT, layout=layout.bipartite, vertex.size=20, vertex.label.cex=0.5)
-
-V(gNT)$label.color <- "black" ##ifelse(V(gNT)$type, "black", "white")
-## V(gNT)$label.font <-  0.6
-V(gNT)$label.cex <- 1 ##ifelse(V(gNT)$type, 0.8, 1.2)
-## V(gNT)$label.dist <-0
-V(gNT)$frame.color <-  "gray"
-V(gNT)$size <- 5
-
-plot(gNT, layout = layout_with_graphopt)
-
-plot(gNT, layout=layout.bipartite, vertex.size=20, vertex.label.cex=0.5)
-
+plot(gFULL, layout=layout.bipartite)
+png("../Fig_Output/gFULLbipart.png")
+gFULLplot <- plot(gFULL, layout=layout.bipartite)
+print(gNTplot)
+dev.off()
 
 ## Analyze the network as a single-mode network
 ## According to https://rpubs.com/pjmurphy/317838
-
 
 ## Calculating centrality
 
@@ -168,17 +168,6 @@ cent_df[order(cent_df$type, decreasing = TRUE),] ## sort w/ `order` by `type`
 
 head(cent_df)
 write.table(summary(cent_df), file="Subset.csv", sep=",")
-
-## Size vertices by centralitry
-V(gNT)$size <- degree(gNT)
-V(gNT)$label.cex <- degree(gNT) * 0.000000000000000000001
-
-gplot <- plot(gNT, layout = layout_with_graphopt)
-
-## Save the Graph plot as .png file into fig_output
-png("../fig_output/graph.png")
-print(gplot)
-dev.off()
 
 ##NETWORK GRAPH
 ##Create and plot a network graph from the adjacency list
