@@ -62,7 +62,7 @@ gNTbipart <- plot(gNT, layout=layout.bipartite)
 
 ```
 
-| Full Network (196 mRNAs/657 miRNAs)       | Subset Network (5 mRNAs/261 miRNAs)          | 
+| Full Network (196 mRNAs - 657 miRNAs)       | Subset Network (5 mRNAs - 261 miRNAs)          | 
 | ------------- |:-------------:| 
 | ![](Fig_Output/gFULLbipart.png)      | ![](Fig_Output/gNTbipart.png) | 
 | ![](Fig_Output/gFULLplot.png)      | ![](Fig_Output/gNTplot.png) | 
