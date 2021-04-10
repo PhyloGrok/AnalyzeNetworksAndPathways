@@ -33,7 +33,10 @@ Modern high-throughput and multi-omics methodologies together with advanced comp
 
 ## B. Network analysis of miRNA-mRNA interaction networks
 
-Our approach in the analysis of miRNA-mRNA interaction networks utilizes the principles and algorithms of Graph Theory. Graph Theory provides a formalized data structure and mathematical system for analysis of networks (Chartrand and Zhang, 2012).  In the following section, we utilize and experimental system from Robinson's NIH postdoctoral research projects. These include a methodology for X- and Y- projection of bipartite graphs (Robinson & Henderson 2018), Nanostring miRNA expression profiles from miR-transfected in vitro intestinal epithelial cell culture expression system (Joseph et al. 2018), and Nanostring mRNA expression profiles from the same biosamples (Robinson 2020).  
+Our approach in the analysis of miRNA-mRNA interaction networks utilizes the principles and algorithms of Graph Theory. Graph Theory provides a formalized data structure and mathematical system for analysis of networks (Chartrand and Zhang, 2012).  In the following section, we utilize and experimental system from Robinson's NIH postdoctoral research projects, from which all data has been made publicly available. These include:
+1. Methodology for X- and Y- projection of bipartite graphs (Robinson & Henderson 2018, https://doi.org/10.1186/s13104-018-3126-y), 
+2. Nanostring miRNA expression profiles from miR-transfected in vitro intestinal epithelial cell culture expression system (Joseph et al. 2018), with raw Nanostring expression data available in the NCBI GEO database (https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE133586) 
+3. Nanostring mRNA expression profiles from the same biosamples (Robinson 2019, ), with raw Nanostring expression data available in the NCBI GEO database
  
 <b>1. Summarizing miRNA-mRNA interactions: Histograms.</b>
 
@@ -121,7 +124,7 @@ Reinhold, et al. 2017. [The NCI-60 Methylome and its integration into CellMiner 
 
 Reinhold, et al. 2012. CellMiner: A Web-Based Suite of Genomic and Pharmacologic Tools to Explore Transcript and Drug Patterns in the NCI-60 Cell Line Set. Cancer Research.72(14). DOI: 10.1158/0008-5472.CAN-12-1370. 
 
-Robinson JM. 2020. Differential gene expression and functional pathway enrichment in colon cell line CCD 841 CoN (CRL-1790) transfected with miR-mimics miR-18b, miR-142-3p, mir-155, and miR-890.  BioRxiv. DOI: http://dx.doi.org/10.1101/747931.
+Robinson JM. 2019. Differential gene expression and functional pathway enrichment in colon cell line CCD 841 CoN (CRL-1790) transfected with miR-mimics miR-18b, miR-142-3p, mir-155, and miR-890.  BioRxiv. DOI: https://www.biorxiv.org/content/10.1101/747931v2.
 
 Robinson JM, Henderson WA. 2018. Modelling the structure of a ceRNA-theoretical, bipartite microRNA-mRNA interaction network regulating intestinal epithelial celluar pathways using R programming.  BMC Research Notes. 11:19. DOI: https://doi.org/10.1186/s13104-018-3126-y.
 
