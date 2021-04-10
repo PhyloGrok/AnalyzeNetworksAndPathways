@@ -16,7 +16,7 @@ A large abundance of yeast-2-hybrid data from the 2000's yielded the ability to 
 
 Both protein-protein and miRNA-mRNA interaction networks form data structures that lend themselves to analysis using Graph Theory mathematics.  While Graph Theory has seen hugely successful application to social networks analysis, it is less intesively applied to molecular interaction networks, and therefore development of such applications represents a growth area.
 
-<b>2. Gene-ontology and pathway enrichment analysis.</b>
+<b>2. Gene Ontology (GO) and pathway enrichment analysis.</b>
  
 Genes are classified through the Gene Ontology (GO) system, where they are grouped by 1. Cellular Component, 2. Molecular Function, 3. Biological Process.  Further, genes are assigned pathway membership in several differen pathway schemes; common examples include the Kyoto Encyclopedia of Genes and Genomes (KEGG), and the Reactome pathway databases.  
 
