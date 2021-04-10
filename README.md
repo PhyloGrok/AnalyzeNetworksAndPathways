@@ -36,7 +36,7 @@ Modern high-throughput and multi-omics methodologies together with advanced comp
 Our approach in the analysis of miRNA-mRNA interaction networks utilizes the principles and algorithms of Graph Theory. Graph Theory provides a formalized data structure and mathematical system for analysis of networks (Chartrand and Zhang, 2012).  In the following section, we utilize and experimental system from Robinson's NIH postdoctoral research projects, from which all data has been made publicly available. These include:
 1. Methodology for X- and Y- projection of bipartite graphs (Robinson & Henderson 2018, https://doi.org/10.1186/s13104-018-3126-y), 
 2. Nanostring miRNA expression profiles from miR-transfected in vitro intestinal epithelial cell culture expression system (Joseph et al. 2018), with raw Nanostring expression data available in the NCBI GEO database (https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE133586) 
-3. Nanostring mRNA expression profiles from the same biosamples (Robinson 2019, ), with raw Nanostring expression data available in the NCBI GEO database
+3. Nanostring mRNA expression profiles from the same biosamples (Robinson 2019, https://www.biorxiv.org/content/10.1101/747931v2), with raw Nanostring expression data available in the NCBI GEO database (https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE132501)
  
 <b>1. Summarizing miRNA-mRNA interactions: Histograms.</b>
 
