@@ -95,7 +95,10 @@ write.table(summary(cent_df), file="Subset.csv", sep=",")
 |  Degree  |  Betweeness  | 
 | ------------- | ------------- |
 | ![](Fig_Output/degPlot.png)     | ![](Fig_Output/betPlot.png)  |
+
+
 | Closeness |  Eigen Centrality  |
+| ------------- | ------------- |
 | ![](Fig_Output/closePlot.png) | ![](Fig_Output/eigPlot.png)  | 
 
    
