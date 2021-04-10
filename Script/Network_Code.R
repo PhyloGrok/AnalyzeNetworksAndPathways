@@ -28,10 +28,9 @@ if (!require("igraph")) {
 setwd(dirname(getActiveDocumentContext()$path))       
 
 #Read .csv file into R data
-miR <- read.csv("../Data/MirWalk_Trimmed.csv", header=TRUE)
+miR <- read.csv("../Data/FULL.csv", header=TRUE)
 
-nt <- read.csv("../Data/MirWalk_Subset.csv", header=TRUE)
-
+nt <- read.csv("../Data/SUBSET.csv", header=TRUE)
 
 ## Part 1:
 ## FREQUENCY DISTRIBUTIONS
@@ -50,7 +49,6 @@ Gene.freq = table(Gene)
 GeneTable <- cbind(Gene.freq)
 colors = c("lightgreen")
 
-
 png("../Fig_Output/H1.png")
 H1 <- hist(GeneTable, freq=FALSE, 
            main="miRNA Targets per mRNA: Density Plot", xlab = "# miRNAs targeting mRNA", breaks=50, col="lightgreen")
@@ -66,7 +64,6 @@ miRNA.freq = table(miRNA)
 miRTable <- cbind(miRNA.freq)
 colors = c("lightgreen")
 
-
 png("../Fig_Output/H2.png")
 H2 <- hist(miRTable, freq=FALSE, 
            main = "mRNA targets per miRNA: Density Plot", xlab = "# of mRNAs targeted", breaks=20, col = "lightgreen")
@@ -75,13 +72,11 @@ curve(dnorm(x, mean=mean(miRNA.freq), sd=sd(miRNA.freq)), add=TRUE, col="blue", 
 print(H2)
 dev.off()
 
-
 ## Visualize the complete bipartite graph
 ## https://rpubs.com/pjmurphy/317838
 ## Make a graph object from list
 gNT <- graph.data.frame(nt)
 gFULL <- graph.data.frame(miR)
-
 
 ## Eliminate the arrowheads. (the graph is assigned as a directed)
 ## (https://igraph.org/r/doc/as.directed.html)
@@ -92,7 +87,6 @@ gNT <- as.undirected(gNT, mode = c("collapse", "each", "mutual"),
 gFULL <- as.undirected(gFULL, mode = c("collapse", "each", "mutual"),
                      edge.attr.comb = igraph_opt("edge.attr.comb"))
 
-
 ## Simplify and make a graph gNT into a bipartite network
 
 bipartite.mapping(gNT)
@@ -100,7 +94,6 @@ V(gNT)$type <- bipartite_mapping(gNT)$type
 
 bipartite.mapping(gFULL)
 V(gFULL)$type <- bipartite_mapping(gFULL)$type
-
 
 #plot(gNT)
 #plot(gNT, vertex.label.cex = 1.0, vertex.label.color = "black")
@@ -129,7 +122,6 @@ gNTplot <- plot(gNT, layout=layout.bipartite)
 print(gNTplot)
 dev.off()
 
-
 ##FullGraph
 V(gFULL)$color <- c("orange", "steelblue")[V(gFULL)$type+1]
 V(gFULL)$shape <- c("square", "circle")[V(gFULL)$type+1]
@@ -151,23 +143,64 @@ dev.off()
 ## Analyze the network as a single-mode network
 ## According to https://rpubs.com/pjmurphy/317838
 
-## Calculating centrality
+## Generate centrality metrics for each graph and export data
+## https://www.youtube.com/watch?v=WjpcbmcJjjM
 
-types <- V(gNT)$type                 ## getting each vertex `type` let's us sort easily
+## Subset graph
+types <- V(gNT)$type  ## getting each vertex `type` lets us sort easily
 deg <- degree(gNT)
 bet <- betweenness(gNT)
 clos <- closeness(gNT)
 eig <- eigen_centrality(gNT)$vector
 
-cent_df <- data.frame(types, deg, bet, clos, eig)
+subsetTable <- data.frame(types, deg, bet, clos, eig)
+subsetTable[order(subsetTable$type, decreasing = TRUE),] ## sort w/ `order` by `type`
+write.table(subsetTable, file="../Data_Output/SubsetTable.csv", sep=",", col.names = NA)
 
-cent_df[order(cent_df$type, decreasing = TRUE),] ## sort w/ `order` by `type`
+## Full graph
+types <- V(gFULL)$type
+deg <- degree(gFULL)
+bet <- betweenness(gFULL)
+clos <- closeness(gFULL)
+eig <- eigen_centrality(gFULL)$vector
 
-## Export summary table of cent_df data frame
-## Using code from https://www.youtube.com/watch?v=WjpcbmcJjjM
+fullTable <- data.frame(types, deg, bet, clos, eig)
+fullTable[order(fullTable$type, decreasing = TRUE),]
+write.table(fullTable, file="../Data_Output/FullTable.csv", sep=",", col.names = NA)
 
-head(cent_df)
-write.table(summary(cent_df), file="Subset.csv", sep=",")
+## Boxplots
+library(ggplot2)
+Results <- read.csv("../Data/CentralityResults.csv", header=TRUE)
+summary(Results)
+#Results$graph <- as.factor(Results$graph)
+
+## http://www.sthda.com/english/wiki/ggplot2-box-plot-quick-start-guide-r-software-and-data-visualization
+
+
+png("../Fig_Output/degPlot.png")
+degPlot <- ggplot(Results, aes(x=molecule, y=degree, fill=graph)) + 
+  geom_boxplot(outlier.shape=NA)
+print(degPlot)
+dev.off()
+
+png("../Fig_Output/betPlot.png")
+betPlot <- ggplot(Results, aes(x=molecule, y=betweeness, fill=graph)) + 
+  geom_boxplot(outlier.shape=NA)
+print(betPlot)
+dev.off()
+
+png("../Fig_Output/closePlot.png")
+closePlot <- ggplot(Results, aes(x=molecule, y=closeness, fill=graph)) + 
+  geom_boxplot(outlier.shape=NA)
+print(closePlot)
+dev.off()
+
+png("../Fig_Output/eigPlot.png")
+eigPlot <- ggplot(Results, aes(x=molecule, y=eigenCentrality, fill=graph)) + 
+  geom_boxplot(outlier.shape=NA)
+print(eigPlot)
+dev.off()
+
 
 ##NETWORK GRAPH
 ##Create and plot a network graph from the adjacency list
