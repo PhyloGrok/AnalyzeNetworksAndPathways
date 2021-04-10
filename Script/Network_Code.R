@@ -202,8 +202,9 @@ print(eigPlot)
 dev.off()
 
 
-##NETWORK GRAPH
+##Bipartite X- and Y-projections
 ##Create and plot a network graph from the adjacency list
+##Adapted from Robinson & Henderson, 2018
 
 #Convert into data frame
 miRFrame <- data.frame(person=miR$Gene, gr=miR$miRNA, stringsAsFactors = F)
