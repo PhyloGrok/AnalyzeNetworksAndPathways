@@ -1,7 +1,0 @@
-  types,     deg,     bet,     clos,     eig
-Mode :logical  ,Min.   :  1.000  ,Min.   :    0.00  ,Min.   :0.001095  ,Min.   :0.03862  
-FALSE:261      ,1st Qu.:  1.000  ,1st Qu.:    0.00  ,1st Qu.:0.001107  ,1st Qu.:0.04730  
-TRUE :5        ,Median :  1.000  ,Median :    0.00  ,Median :0.001198  ,Median :0.07239  
-NA,Mean   :  3.195  ,Mean   :  270.65  ,Mean   :0.001264  ,Mean   :0.10220  
-NA,3rd Qu.:  2.000  ,3rd Qu.:   86.99  ,3rd Qu.:0.001361  ,3rd Qu.:0.11968  
-NA,Max.   :110.000  ,Max.   :14546.87  ,Max.   :0.001905  ,Max.   :1.00000  
