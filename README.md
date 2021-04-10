@@ -100,6 +100,7 @@ write.table(summary(cent_df), file="Subset.csv", sep=",")
 <h2 align="left">
 Citations:
 </h2>
+
 Chartrand G, Zhang P. 2012. A First Course in Graph Theory. Dover Publications, Inc. Mineola NY.
 
 
