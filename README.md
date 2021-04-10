@@ -39,7 +39,7 @@ Our approach in the analysis of miRNA-mRNA interaction networks utilizes the pri
 3. Nanostring mRNA expression profiles from the same biosamples (Robinson 2019, https://www.biorxiv.org/content/10.1101/747931v2), with raw Nanostring expression data available in the NCBI GEO database (https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE132501)
  
 <b>1. Summarizing miRNA-mRNA interactions: Histograms.</b>
-The histogram plots display the distributions of experimentally-validated miRNA-mRNA target interactions from their two perspectives:  1. The number of mRNAs targeted by each individual miRNA, and 2. The number of miRNAs targeting each individual mRNA. 
+The histogram plots display the distributions of experimentally-validated miRNA-mRNA target interactions from their two perspectives:  1. The number of mRNAs targeted by each individual miRNA, and 2. The number of miRNAs targeting each individual mRNA. The experimentally-validated interaction data was obtained from the MirWalk2.0 database, and then subset for mRNAs and miRNAs contained within our Nanostring expression panels. 
 
 ```
 ## Export the histogram as .png
