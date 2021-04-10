@@ -4,7 +4,7 @@ Analyze Networks and Pathways</h1>
 Dr. Jeffrey Robinson, BTEC 495 project supervisor<br>
 Ms. Kathryn Hogan, BTEC 495 intern (Fall 2020/Spring 2021)<br>
 
-The project contains work performed by students from UMBC's BTEC495 Professional Internship and Project-based Research Experience as part of  [Translational Life Science Technology (TLST) program](http://shadygrove.umbc.edu/tlst.php) at Universities at Shady Grove Campus.  Data utilized from Robinson's NIH postdoctoral research projects (see references).  Additional informatics support provided by Robinson Scientifics LLC.
+The project contains work performed by students from UMBC's BTEC495 Professional Internship and Project-based Research Experience as part of  [Translational Life Science Technology (TLST) program](http://shadygrove.umbc.edu/tlst.php) at Universities at Shady Grove Campus.    Additional informatics support provided by Robinson Scientifics LLC.
 
 ## A. Networks and Pathways
 
@@ -32,9 +32,11 @@ For example, in Eric Davidson's (Caltech) at-the-time groundbreaking work on tra
 Modern high-throughput and multi-omics methodologies together with advanced computing technologies and public databases offer incredible leverage to further the understanding of the molecular regulatory "layers of abstraction" and their relative contributions to the biological hierarchy. NCI's CellMiner database, for example, contains methylome, transcriptome (miRNA and differentially-spliced mRNA), genome, proteome, and more data for 60 of the key in vitro cancer cell lines (Reinhold et al. 2012, 2017).
 
 ## B. Network analysis of miRNA-mRNA interaction networks
+
+Our approach in the analysis of miRNA-mRNA interaction networks utilizes the principles and algorithms of Graph Theory. Graph Theory provides a formalized data structure and mathematical system for analysis of networks (Chartrand and Zhang, 2012).  In the following section, we utilize and experimental system from Robinson's NIH postdoctoral research projects. These include a methodology for X- and Y- projection of bipartite graphs (Robinson & Henderson 2018), Nanostring miRNA expression profiles from miR-transfected in vitro intestinal epithelial cell culture expression system (Joseph et al. 2018), and Nanostring mRNA expression profiles from the same biosamples (Robinson 2020).  
  
 <b>1. Summarizing miRNA-mRNA interactions: Histograms.</b>
-(histogram code adapted from Robinson & Henderson (2018))
+
 
 ```
 ## Export the histogram as .png
