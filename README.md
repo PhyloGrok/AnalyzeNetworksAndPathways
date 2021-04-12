@@ -80,7 +80,7 @@ gNTbipart <- plot(gNT, layout=layout.bipartite)
 
 
 
-<b>3. Graph Metrics (degree, betweenness, closeness, eigen centrality) </b>
+<b>3. Graph Centrality Metrics (degree, betweenness, closeness, eigen centrality) </b>
 
 ```
 types <- V(g)$type                 ## getting each vertex `type` let's us sort easily
