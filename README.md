@@ -4,7 +4,7 @@ Analyze Networks and Pathways</h1>
 Dr. Jeffrey Robinson, BTEC 495 project supervisor<br>
 Ms. Kathryn Hogan, BTEC 495 intern (Fall 2020/Spring 2021)<br>
 
-The project contains work performed by students from UMBC's BTEC495 Professional Internship and Project-based Research Experience as part of  [Translational Life Science Technology (TLST) program](http://shadygrove.umbc.edu/tlst.php) at Universities at Shady Grove Campus.    Additional informatics support provided by Robinson Scientifics LLC.
+The project contains work performed by students from UMBC's BTEC495 Professional Internship and Project-based Research Experience as part of  [Translational Life Science Technology (TLST) program](http://shadygrove.umbc.edu/tlst.php) at Universities at Shady Grove Campus.    Additional informatics support was donated by Robinson Scientifics LLC.
 
 ## A. Networks and Pathways
 
