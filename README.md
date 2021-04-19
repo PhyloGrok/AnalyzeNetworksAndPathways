@@ -106,7 +106,11 @@ write.table(summary(cent_df), file="Subset.csv", sep=",")
 | ------------- | ------------- |
 | ![](Fig_Output/closePlot.png) | ![](Fig_Output/eigPlot.png)  | 
 
-   
+
+<b>4. Results on the differential centrality of miRNA-mRNA interaction networks </b>
+When we examine networks with smaller subsets of mRNA members, the network structure takes on several observed characteristics. 
+
+
 
 ##
 
