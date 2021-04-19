@@ -1,3 +1,4 @@
+[![DOI](https://zenodo.org/badge/278665845.svg)](https://zenodo.org/badge/latestdoi/278665845)
 <h1 align="center">
 Analyze Networks and Pathways</h1>
 
