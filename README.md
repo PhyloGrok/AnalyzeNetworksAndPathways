@@ -108,7 +108,8 @@ write.table(summary(cent_df), file="Subset.csv", sep=",")
 
 
 <b>4. Results on the differential centrality of miRNA-mRNA interaction networks </b>
-When we examine networks with smaller subsets of mRNA members, the network structure takes on several observed characteristics. 
+
+When we examine networks with smaller subsets of mRNA members, the network structure takes on several observed characteristics. Degree, betweeness, and eigen centrality increase in the mRNAs as expected, while the respective miRNA metrics vary only slightly.  In the closeness metric, both mRNA and miRNA show a large increase.  
 
 
 
