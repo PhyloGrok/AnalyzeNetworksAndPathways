@@ -1,3 +1,4 @@
+## Comment the code
 ## Install packages
 if (!require("rstudioapi")) {
   install.packages("rstudioapi", dependencies = TRUE)
@@ -112,12 +113,17 @@ V(gNT)$size <- c(3, 20)[V(gNT)$type+1]
 
 plot(gNT)
 png("../Fig_Output/gNTplot.png")
+
+tiff("../Fig_Output/gNTplot.tiff", units="in", width=7, height=7, res=1000, compression = 'lzw')
 gNTplot <- plot(gNT)
 print(gNTplot)
 dev.off()
 
+
+
 plot(gNT, layout=layout.bipartite)
 png("../Fig_Output/gNTbipart.png")
+tiff("../Fig_Output/gNTbipart.tiff", units="in", width=7, height=7, res=1000, compression = 'lzw')
 gNTplot <- plot(gNT, layout=layout.bipartite)
 print(gNTplot)
 dev.off()
@@ -130,12 +136,16 @@ V(gFULL)$size <- c(1.5, 3)[V(gFULL)$type+1]
 
 plot(gFULL)
 png("../Fig_Output/gFULLplot.png")
+tiff("../Fig_Output/gFULLplot.tiff", units="in", width=7, height=7, res=1000, compression = 'lzw')
+
 gFULLplot <- plot(gFULL)
 print(gFULLplot)
 dev.off()
 
 plot(gFULL, layout=layout.bipartite)
 png("../Fig_Output/gFULLbipart.png")
+tiff("../Fig_Output/gFULLbipart.tiff", units="in", width=7, height=7, res=1000, compression = 'lzw')
+
 gFULLplot <- plot(gFULL, layout=layout.bipartite)
 print(gNTplot)
 dev.off()
@@ -178,29 +188,55 @@ summary(Results)
 
 
 png("../Fig_Output/degPlot.png")
+#tiff("../Fig_Output/degPlot.tiff", units="in", width=7, height=7, res=1000, compression = 'lzw')
+
 degPlot <- ggplot(Results, aes(x=molecule, y=degree, fill=graph)) + 
   geom_boxplot(outlier.shape=NA)
 print(degPlot)
 dev.off()
 
 png("../Fig_Output/betPlot.png")
+#tiff("../Fig_Output/betPlot.tiff", units="in", width=7, height=7, res=1000, compression = 'lzw')
+
 betPlot <- ggplot(Results, aes(x=molecule, y=betweeness, fill=graph)) + 
   geom_boxplot(outlier.shape=NA)
 print(betPlot)
 dev.off()
 
 png("../Fig_Output/closePlot.png")
+#tiff("../Fig_Output/closePlot.tiff", units="in", width=7, height=7, res=1000, compression = 'lzw')
+
 closePlot <- ggplot(Results, aes(x=molecule, y=closeness, fill=graph)) + 
   geom_boxplot(outlier.shape=NA)
 print(closePlot)
 dev.off()
 
 png("../Fig_Output/eigPlot.png")
+#tiff("../Fig_Output/eigPlot.tiff", units="in", width=7, height=7, res=1000, compression = 'lzw')
+
 eigPlot <- ggplot(Results, aes(x=molecule, y=eigenCentrality, fill=graph)) + 
   geom_boxplot(outlier.shape=NA)
 print(eigPlot)
 dev.off()
 
+## Size vertices by centrality
+V(gNT)$size <- degree(gNT) * .2
+V(gNT)$label.cex <- degree(gNT) * 0.005
+plot(gNT, layout = layout_with_graphopt)
+plot(gNT, layout = layout.bipartite)
+plot(gNT)
+gplot <- plot(gNT, layout = layout_with_graphopt)
+
+V(gFULL)$size <- degree(gFULL) * .2
+V(gFULL)$label.cex <- degree(gFULL) * 0.005
+plot(gFULL, layout = layout_with_graphopt)
+plot(gFULL, layout = layout.bipartite)
+gplot <- plot(gNT, layout = layout_with_graphopt)
+
+## Save the Graph plot as .png file into fig_output
+png("../fig_output/graph.png")
+print(gplot)
+dev.off()
 
 ##Bipartite X- and Y-projections
 ##Create and plot a network graph from the adjacency list
