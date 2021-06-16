@@ -1,4 +1,8 @@
-## Comment the code
+## Robinson JM. 2021
+## Github AnalyzeNetworksAndPathways 
+## https://github.com/PhyloGrok/AnalyzeNetworksAndPathways/edit/master/Script/GraphCentrality.R
+## GraphCentrality.R - R code for generating graph objects from adjacency lists representing mRNA-miRNA interactions 
+
 ## Install packages
 if (!require("rstudioapi")) {
   install.packages("rstudioapi", dependencies = TRUE)
