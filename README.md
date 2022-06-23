@@ -5,40 +5,30 @@ MolGraphs: Molecular Interaction Networks </h1>
 Dr. Jeffrey Robinson, BTEC 495 project supervisor<br>
 Ms. Kathryn Hogan, BTEC 495 intern (Fall 2020/Spring 2021)<br>
 
-The project contains work performed by students from UMBC's BTEC495 Professional Internship and Project-based Research Experience as part of  [Translational Life Science Technology (TLST) program](http://shadygrove.umbc.edu/tlst.php) at Universities at Shady Grove Campus.    Additional informatics support was donated by Robinson Scientifics LLC.
+Research interns include students from UMBC's BTEC495 "Professional Internship and Project-based Research Experience", from the [Translational Life Science Technology (TLST) program](http://shadygrove.umbc.edu/tlst.php) at Universities at Shady Grove Campus.  Additional informatics support is donated by Robinson Scientifics LLC.
 
-## A. Networks and Pathways
+## A. Molecular Interaction Networks 
+Within cells and biological systems, biomolecules form a vast number of context-dependent interactions which may be appropriately modeled as networks subject to the mathematical properties described by Graph Theory (Chartrand and Zhang, 2012).  Among the most commonly studied include protein-protein, protein-DNA, and miRNA-mRNA interaction networks.  Here we focus on development of a workflow for analysis of miRNA-mRNA interaction networks, which interact in a bipartite-like network.  Biologically, miRNAs bind to complementary target sites on mRNAs and inhibit subsequent protein expression, in a manner affected by the relative abundance of miRNAs and mRNA target sites in a phenomenon named 'competing endogenous RNA (ceRNA)'.  Specifically, we will use this workflow to investigate how network properties are affected by changes in expression levels of mRNAs and miRNAs.
 
-Bioinformatic analysis is key to the interpretation of -omics data.  Network and pathway analyses can elucidate the various functional molecular interactions occurring at the molecular and cellular level.  These analyses take many forms, in general the most common types of analyses for -omics data include:
+## B. Experimental Data
+1. CRL1790 (a fetal colon epithelial-like cell line).  Both mRNA and miRNA datasets were derived from the same RNA samples.  The data is limited in scope, in regards to the 800 miRNAs and 250 mRNAs present in the Nanostring probe panels.
 
-<b>1. Molecular interaction networks.</b>  
+    a. <b>miRNA expression (Nanostring).</b> "miRNA expression in CTRL1790 cells transfected with miR mimics".<br>
+    <em>GEO Series</em>: "GSE133586", https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE133586. <br>
+    <em>Platform</em>: "GPL22634 NanoString Human miRNA version 3", https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GPL22634. <br>
+    <em>Publication</em>: (Joseph et al. 2018)<br>
+    
+    b. <b>mRNA expression (Nanostring).</b> "Pathway-Associated Gene Expression in Gastrointestinal Cell Lines Under Conditions of Culture Age, Dexamethasone Exposure, and miRNA Overexpression". <br>
+    <em>GEO Series</em>: GSE132501, https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE132501. <br>
+    <em>Platform</em>: GPL2674 "custom Nanostring probe panel", https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GPL26764. <br>
+    <em>Bioproject</em>: PRJNA548189, https://www.ncbi.nlm.nih.gov/bioproject/PRJNA548189 <br>
+    <em>Publication</em>: (Robinson 2019a)<br>
 
-A large abundance of yeast-2-hybrid data from the 2000's yielded the ability to model and validate protein-protein interaction networks at proteome-scale.  During the 2010's, significant miRNA-mRNA interaction data has become available through RNA-immunoprecipitation/RNA-seq studies("RIP-seq").  These studies use Argonaute immunoprecipitation with RNA-seq to develop a transcriptome-wide model for miRNA-mRNA interactions in biological context.  Data on both bioinformatically predicted and experimentally validated miRNA-mRNA interactions are available as large aggregated datasets from the MirWalk2.0 database.  
+## C. Computational Models
+1. miRNA-mRNA experimentally validated interactions for the Nanostring subset was retrieved from MirWalk2.0 database.<br>
+2. Code for producting X- and Y- projections of bipartite graphs from the  (Robinson & Henderson 2018). <br> 
 
-Both protein-protein and miRNA-mRNA interaction networks form data structures that lend themselves to analysis using Graph Theory mathematics.  While Graph Theory has seen hugely successful application to social networks analysis, it is less intesively applied to molecular interaction networks, and therefore development of such applications represents a growth area.
-
-<b>2. Gene Ontology (GO) and pathway enrichment analysis.</b>
- 
-Genes are classified through the Gene Ontology (GO) system, where they are grouped by 1. Cellular Component, 2. Molecular Function, 3. Biological Process.  Further, genes are assigned pathway membership in several differen pathway schemes; common examples include the Kyoto Encyclopedia of Genes and Genomes (KEGG), and the Reactome pathway databases.  
-
-In any given gene subset, or with the full genome, these categorization schemes can be tested for statistical enrichment against a null-case reference.  Although this provides a semi-quantification of functional molecular phenotype inferrence, these do not provide direct quantification of a global molecular mechanism in the same way as experimentally-derived molecular interaction networks described above.
-
-
-<b>3. Gene regulatory network analysis (ie. transcription factor regulatory networks).</b>
-
-In gene regulatory networks, the interactions between (for example) transcription factors and cis-regulatory elements are quantified in terms of their effect on gene regulation at the genome-wide level.  In practice, elucidation of these networks has historically been limited by the experimental methodology.  
-
-For example, in Eric Davidson's (Caltech) at-the-time groundbreaking work on transcription factor regulatory networks in sea urchin embryonic development, in situ hybridizations must be performed, with replication, for each-and-every transcription factor, during each-and-every developmental stage.  A tremendous task requiring dozens-to-hundreds of laboratory personnel.  Even these results, however, gave only a glimpse of the true regulatory complexity of embryonic development, limited to the specific transcription factor panels investigated, and the specific RNA transcripitonal responses, and the species-specific biological context of embryonic development (though the results were leveraged by comparative analysis into more generalized principles).  In biological reality, virtually all regulatory interactions are affected by epigenetic, co- and post-transcriptional modification, post-translational modifications, the genetic mutation background, signalling from the environmental milieu, feedback mechanisms, etc. etc.  
-
-Modern high-throughput and multi-omics methodologies together with advanced computing technologies and public databases offer incredible leverage to further the understanding of the molecular regulatory "layers of abstraction" and their relative contributions to the biological hierarchy. NCI's CellMiner database, for example, contains methylome, transcriptome (miRNA and differentially-spliced mRNA), genome, proteome, and more data for 60 of the key in vitro cancer cell lines (Reinhold et al. 2012, 2017).
-
-## B. Network analysis of miRNA-mRNA interaction networks
-
-Our approach in the analysis of miRNA-mRNA interaction networks utilizes the principles and algorithms of Graph Theory. Graph Theory provides a formalized data structure and mathematical system for analysis of networks (Chartrand and Zhang, 2012).  In the following section, we utilize and experimental system from Robinson's NIH postdoctoral research projects, from which all data has been made publicly available. These include:
-1. Methodology for X- and Y- projection of bipartite graphs (Robinson & Henderson 2018, https://doi.org/10.1186/s13104-018-3126-y), 
-2. Nanostring miRNA expression profiles from miR-transfected in vitro intestinal epithelial cell culture expression system (Joseph et al. 2018), with raw Nanostring expression data available in the NCBI GEO database (https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE133586) 
-3. Nanostring mRNA expression profiles from the same biosamples (Robinson 2019, https://www.biorxiv.org/content/10.1101/747931v2), with raw Nanostring expression data available in the NCBI GEO database (https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE132501)
- 
+## D. Descriptive statistics for a bipartite miRNA-mRNA interaction network.
 <b>1. Summarizing miRNA-mRNA interactions: Histograms.</b>
 The histogram plots display the distributions of experimentally-validated miRNA-mRNA target interactions from their two perspectives:  1. The number of mRNAs targeted by each individual miRNA, and 2. The number of miRNAs targeting each individual mRNA. The experimentally-validated interaction data was obtained from the MirWalk2.0 database, and then subset for mRNAs and miRNAs contained within our Nanostring expression panels. 
 
