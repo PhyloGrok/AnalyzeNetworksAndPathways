@@ -28,9 +28,9 @@ Within cells and biological systems, biomolecules form a vast number of context-
 1. miRNA-mRNA experimentally validated interactions for the Nanostring subset was retrieved from MirWalk2.0 database.<br>
 2. Code for producting X- and Y- projections of bipartite graphs from the  (Robinson & Henderson 2018). <br> 
 
-## D. Descriptive statistics for a bipartite miRNA-mRNA interaction network.
+## D. Target distributions for bipartite miRNA-mRNA interaction network.
 <b>1. Summarizing miRNA-mRNA interactions: Histograms.</b>
-The histogram plots display the distributions of experimentally-validated miRNA-mRNA target interactions from their two perspectives:  1. The number of mRNAs targeted by each individual miRNA, and 2. The number of miRNAs targeting each individual mRNA. The experimentally-validated interaction data was obtained from the MirWalk2.0 database, and then subset for mRNAs and miRNAs contained within our Nanostring expression panels. 
+The histogram plots display the distributions of experimentally-validated miRNA-mRNA target interactions from their two perspectives:  1. The number of mRNAs targeted by each individual miRNA, and 2. The number of miRNAs targeting each individual mRNA. Both miRNA nodes and mRNA nodes exhibit log-normal distributions. 
 
 ```
 ## Export the histogram as .png
@@ -46,7 +46,10 @@ dev.off()
 | ------------- |:-------------:| 
 | ![](Fig_Output/H1.png)      | ![](Fig_Output/H2.png) | 
 
-<b>2. Create the Graph dataframe, bipartite annotations, and network plots </b>
+
+## E. Network Visulazations and Graph Metrics for Complete and Subset Networks
+
+<b> Generate Graph dataframe, bipartite annotations, and network plots </b>
 
 ```
 ## Create a graph dataframe
@@ -71,7 +74,7 @@ gNTbipart <- plot(gNT, layout=layout.bipartite)
 
 
 
-<b>3. Graph Centrality Metrics (degree, betweenness, closeness, eigen centrality) </b>
+<b> Network Centrality Metrics (degree, betweenness, closeness, eigen centrality) </b>
 
 ```
 types <- V(g)$type                 ## getting each vertex `type` let's us sort easily
@@ -98,9 +101,9 @@ write.table(summary(cent_df), file="Subset.csv", sep=",")
 | ![](Fig_Output/closePlot.png) | ![](Fig_Output/eigPlot.png)  | 
 
 
-<b>4. Results on the differential centrality of miRNA-mRNA interaction networks </b>
+<b> Results on the differential centrality of miRNA-mRNA interaction networks </b>
 
-When we examine networks with smaller subsets of mRNA members, the network structure takes on several observed characteristics. Degree, betweeness, and eigen centrality increase in the mRNAs as expected, while the respective miRNA metrics vary only slightly.  In the closeness metric, both mRNA and miRNA show a large increase.  
+In networks limited to a small subset of mRNA nodes, centrality metrics for degree, betweeness, and eigen centrality increase for the mRNAs, as expected for smaller network. while the respective miRNA metrics are decrease.  For the closeness metric, miRNA nodes also show a large increase along with mRNA nodes.  
 
 
 ##
