@@ -113,7 +113,6 @@ write.table(summary(cent_df), file="Subset.csv", sep=",")
 When we examine networks with smaller subsets of mRNA members, the network structure takes on several observed characteristics. Degree, betweeness, and eigen centrality increase in the mRNAs as expected, while the respective miRNA metrics vary only slightly.  In the closeness metric, both mRNA and miRNA show a large increase.  
 
 
-
 ##
 
 <h2 align="left">
@@ -124,13 +123,11 @@ Chartrand G, Zhang P. 2012. A First Course in Graph Theory. Dover Publications, 
 
 Joseph PV, et al. 2018. Colon Epithelial MicroRNA Network in Fatty Liver. Canadian Journal of Gastroenterology and Hepatology. 2018:8246103. PMID:30345259.
 
-Needham M, Hodler AE. 2019. Graph Algorithms Practical Examples in Apache Spark & Neo4j. O'REILLY. Boston MA.
-
-Reinhold, et al. 2017. [The NCI-60 Methylome and its integration into CellMiner Database](https://cancerres.aacrjournals.org/content/77/3/601). Cancer Research. DOI: 10.1158/0008-5472.CAN-16-0655.
-
 Reinhold, et al. 2012. CellMiner: A Web-Based Suite of Genomic and Pharmacologic Tools to Explore Transcript and Drug Patterns in the NCI-60 Cell Line Set. Cancer Research.72(14). DOI: 10.1158/0008-5472.CAN-12-1370. 
 
-Robinson JM. 2019. Differential gene expression and functional pathway enrichment in colon cell line CCD 841 CoN (CRL-1790) transfected with miR-mimics miR-18b, miR-142-3p, mir-155, and miR-890.  BioRxiv. DOI: https://www.biorxiv.org/content/10.1101/747931v2.
+Robinson JM. 2019a. Differential gene expression and functional pathway enrichment in colon cell line CCD 841 CoN (CRL-1790) transfected with miR-mimics miR-18b, miR-142-3p, mir-155, and miR-890.  BioRxiv. DOI: https://www.biorxiv.org/content/10.1101/747931v2.
+
+Robinson JM. 2019b. Comparative pathway enrichment analysis in gastrointestinal cell lines Caco-2, HT-29, HEPG2, and colon fibroblasts using a custom expression panel for tight-junction and cytoskeletal regulatory genes. bioRxiv. DOI: https://doi.org/10.1101/747105. 
 
 Robinson JM, Henderson WA. 2018. Modelling the structure of a ceRNA-theoretical, bipartite microRNA-mRNA interaction network regulating intestinal epithelial celluar pathways using R programming.  BMC Research Notes. 11:19. DOI: https://doi.org/10.1186/s13104-018-3126-y.
 
