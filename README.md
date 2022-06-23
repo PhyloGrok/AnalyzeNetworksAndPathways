@@ -1,6 +1,6 @@
 [![DOI](https://zenodo.org/badge/278665845.svg)](https://zenodo.org/badge/latestdoi/278665845)
 <h1 align="center">
-MolGraph: Molecular Interaction Networks </h1>
+MolGraphs: Molecular Interaction Networks </h1>
 
 Dr. Jeffrey Robinson, BTEC 495 project supervisor<br>
 Ms. Kathryn Hogan, BTEC 495 intern (Fall 2020/Spring 2021)<br>
