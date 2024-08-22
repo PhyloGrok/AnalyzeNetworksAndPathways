@@ -4,6 +4,7 @@ MolGraphs: Molecular Interaction Networks </h1>
 
 Dr. Jeffrey Robinson, BTEC 495 project supervisor<br>
 Ms. Kathryn Hogan, BTEC 495 intern (Fall 2020/Spring 2021)<br>
+Ms. Li Lan Fang, BTEC 495 intern (Fall 2024)<br>
 
 Research interns include students from UMBC's BTEC495 "Professional Internship and Project-based Research Experience", from the [Translational Life Science Technology (TLST) program](http://shadygrove.umbc.edu/tlst.php) at Universities at Shady Grove Campus.  Additional informatics support is donated by Robinson Scientifics LLC.
 
