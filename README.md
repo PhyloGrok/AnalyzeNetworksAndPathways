@@ -89,7 +89,7 @@ head(cent_df)
 write.table(summary(cent_df), file="Subset.csv", sep=",")
 
 ```
-
+Adding a glossary for these 4 types
 
 |  Degree  |  Betweeness  | 
 | ------------- | ------------- |
